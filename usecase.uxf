@@ -345,4 +345,15 @@
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>210;260;30;30</additional_attributes>
   </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>100</x>
+      <y>260</y>
+      <w>160</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>140;30;30;220</additional_attributes>
+  </element>
 </diagram>
