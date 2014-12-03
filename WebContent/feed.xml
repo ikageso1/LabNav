@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/~ikageso/blog</id>
+  <link href="http://blog.url.com/~ikageso/blog"/>
+  <link href="http://blog.url.com/~ikageso/feed.xml" rel="self"/>
+  <updated>2014-10-01T00:00:00+00:00</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>第三回卒研ゼミ</title>
+    <link rel="alternate" href="http://blog.url.com/~ikageso/blog/2014/10/01/01.html"/>
+    <id>http://blog.url.com/~ikageso/blog/2014/10/01/01.html</id>
+    <published>2014-10-01T00:00:00+00:00</published>
+    <updated>2014-10-04T13:35:13+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1&gt;卒研ゼミ&lt;/h1&gt;
+&lt;div class="main"&gt;
+
+&lt;div class="day"&gt;
+&lt;h2&gt; &lt;span class="title"&gt; 第三回:静的Webサイトの構築 &lt;/span&gt; &lt;/h2&gt;
+&lt;div class="body"&gt;
+&lt;h5&gt;rubyのバージョン確認&lt;/h5&gt;
+&lt;pre&gt;ruby -v&lt;/pre&gt;
+&lt;h5&gt;railsのバージョン確認&lt;/h5&gt;
+&lt;pre&gt;rails -v&lt;/pre&gt;
+&lt;h5&gt;ファイル共有&lt;/h5&gt;
+&lt;div class="section"&gt;
+&lt;p&gt;ディレクトリによる共有&lt;/p&gt;
+vgrant側の"/vagrant"ディレクトリと、
+MacOS側のVagrantfileが置かれているディレクトリは共有となっている
+&lt;p&gt;scpによる共有&lt;/p&gt;
+&lt;pre&gt;vagrant ssh-config&lt;/pre&gt;
+上記のコマンドで設定が出力される。
+これをリダイレクトして適当なファイルに保存する。&lt;br /&gt;
+送信するときはscpの-Fをファイルを指定して送信。
+&lt;pre&gt;scp　-F　コンフィグファイル　vagrant@default:送信したいファイルパス&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5&gt;Middlemanのコマンド&lt;/h5&gt;
+&lt;ul&gt;
+&lt;p&gt;新規作成&lt;/p&gt;
+&lt;li&gt;middleman init プロジェクト名&lt;/li&gt;
+&lt;p&gt;サーバ立ち上げ&lt;/p&gt;
+&lt;li&gt;middleman server&lt;/li&gt;
+&lt;p&gt;静的ファイル作成&lt;/p&gt;
+&lt;li&gt;middleman build&lt;/li&gt;
+これはproject/buildディレクトリ以下にファイルが生成される。
+&lt;/ul&gt;
+
+&lt;h5&gt;ポートフォーワディングの設定&lt;/h5&gt;
+Vagrantfileファイルを編集して以下のように設定
+&lt;pre&gt;config.vm.network  "forwaded\_port",guest 4567,host 4000&lt;/pre&gt;
+この場合は仮想OSのポート4567をホスト側4000に対応させている。
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="sidebar"&gt;
+&lt;iframe src="/sotuken.html" width="160" height="500"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;div class="refererlist"&gt;
+&lt;ul&gt;
+&lt;li&gt;refererlist&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="footer"&gt;
+footer
+&lt;/div&gt;
+</content>
+  </entry>
+  <entry>
+    <title>第二回</title>
+    <link rel="alternate" href="http://blog.url.com/~ikageso/blog/2014/09/26/01.html"/>
+    <id>http://blog.url.com/~ikageso/blog/2014/09/26/01.html</id>
+    <published>2014-09-26T00:00:00+00:00</published>
+    <updated>2014-10-04T14:19:27+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1&gt;分散システム&lt;/h1&gt;
+&lt;div class="main"&gt;
+  &lt;div class="day"&gt;
+  &lt;h2&gt;&lt;span class="title"&gt;第二回&lt;/span&gt;&lt;/h2&gt;
+  &lt;div class="body"&gt;
+	  &lt;h5&gt;通信プリミティブ&lt;/h5&gt;
+	  プロセスがメッセージを送受信する為のライブラリ関数.
+	  &lt;ul&gt;
+		  &lt;li&gt;send:メッセージを送信する&lt;/li&gt;
+		  &lt;li&gt;receive:メッセージを受信する&lt;/li&gt;
+	  &lt;/ul&gt;
+	  性質としては
+	  &lt;ol&gt;
+		  &lt;li&gt;信頼性&lt;/li&gt;
+		  正しいメッセージが届くかどうかを示す.
+		  高信頼通信ではメッセージが破壊された場合は再送して保証する.
+		  &amp;lt;table border=1&amp;gt;
+			  &lt;tr&gt;
+				  &lt;th&gt;高信頼&lt;/th&gt;
+				  &lt;th&gt;バッファ間での整合性&lt;/th&gt;    
+			  &lt;/tr&gt;
+			  &lt;tr&gt;
+				  &lt;th&gt;低信頼&lt;/th&gt;
+				  &lt;th&gt;プロセス間での整合性&lt;/th&gt;
+		  
+		  &lt;li&gt;コネクション&lt;/li&gt;
+		  コネクション型通信はメッセージを受信する際に確認応答を伴う(3 way handshake).
+		  対して,コネクションレス型通信は即座にメッセージを送信する.
+		 
+		  &lt;li&gt;同期/非同期&lt;/li&gt;
+		  &lt;li&gt;マルチキャスト&lt;/li&gt;
+	  
+	  &lt;h5&gt;メッセージ&lt;/h5&gt;
+	  &amp;lt;table border=1&amp;gt;
+		  &lt;tr&gt;
+			  &lt;th&gt;データグラム&lt;/th&gt;
+			  &lt;th&gt;ストリーム&lt;/th&gt;
+		  &lt;/tr&gt;
+		  &lt;tr&gt;
+			  &lt;th&gt;UDP&lt;/th&gt;
+			  &lt;th&gt;TCP&lt;/th&gt;
+		  &lt;/tr&gt;
+		  &lt;tr&gt;
+			  &lt;th&gt;
+				  低信頼&lt;br /&gt;
+				  コネクションレス型
+			  &lt;/th&gt;
+			  &lt;th&gt;
+				  高信頼&lt;br /&gt;
+				  コネクション型
+			  &lt;/th&gt;
+		  &lt;/tr&gt;
+		  &lt;tr&gt;
+			  &lt;th&gt;高速&lt;/th&gt;
+			  &lt;th&gt;低速&lt;/th&gt;
+		  &lt;/tr&gt;	
+	  
+	  &lt;h5&gt;マルチキャスト&lt;/h5&gt;
+	  &lt;p&gt;目的&lt;/p&gt;
+	  &lt;ol&gt;
+		  &lt;li&gt;フォールトトレランス性(耐故障性)&lt;/li&gt;
+		  &lt;li&gt;オブジェクトの位置の特定&lt;/li&gt;
+		  &lt;li&gt;複製データの同時更新&lt;/li&gt;
+		  &lt;li&gt;グループ全体への同時送信&lt;/li&gt;
+	  &lt;/ol&gt;
+
+	  &lt;p&gt;マルチキャストのタイプ&lt;/p&gt;
+	  &lt;dl&gt;
+		  &lt;dt&gt;原子マルチキャスト:&lt;/dt&gt;
+		  &lt;dd&gt;送信されたメッセージは,受信グループの全プロセスを受信するか,全プロセスを破棄する.&lt;/dd&gt;
+		  &lt;dt&gt;高信頼マルチキャスト:&lt;/dt&gt;
+		  &lt;dd&gt;送信されたメッセージは,受信グループの全プロセスに受信されるよう,再送するなどして努力する.&lt;/dd&gt;
+		  &lt;dt&gt;低信頼マルチキャスト:&lt;/dt&gt;
+		  &lt;dd&gt;送信されたメッセージは,ただ一度,受信グループの全プロセスに配信される&lt;/dd&gt;
+		  &lt;dt&gt;全順序マルチキャスト:&lt;/dt&gt;
+		  &lt;dd&gt;受信グループのどのプロセスにも,同じ順序でメッセージが配信される.&lt;/dd&gt;
+	  &lt;/dl&gt;
+	  &lt;p&gt;実装&lt;/p&gt;
+	  低信頼マルチキャスト
+	 
+&lt;pre&gt;送信プロセスの各ポートへ順にメッセージを送信する&lt;/pre&gt;
+	  高信頼マルチキャスト
+&lt;pre&gt;1.送信プロセスは低信頼マルチキャストでメッセージを送信
+2.受信側はメッセージに対する受信通知を送信側に送る
+3.送信側は受信通知のないプロセスへメッセージを再送する&lt;/pre&gt;
+	  全順序マルチキャスト
+&lt;pre&gt;1.全順序メッセージの添付されたメッセージを送信する
+2.受信側は,全順序メッセージ識別師の順に処理する&lt;/pre&gt;
+   
+
+    
+&lt;div class="sidebar"&gt;
+&lt;iframe src="/~ikageso/destribute.html" width="160" height="500"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+						    
+&lt;div class="refererlist"&gt;
+&lt;ul&gt;
+&lt;li&gt;refererlist&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="footer"&gt;
+footer
+&lt;/div&gt;
+&lt;/tr&gt;&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+  </entry>
+  <entry>
+    <title>第二回卒研ゼミ</title>
+    <link rel="alternate" href="http://blog.url.com/~ikageso/blog/2014/09/24/01.html"/>
+    <id>http://blog.url.com/~ikageso/blog/2014/09/24/01.html</id>
+    <published>2014-09-24T00:00:00+00:00</published>
+    <updated>2014-10-04T13:35:13+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1&gt;卒研ゼミ&lt;/h1&gt;
+&lt;div class="main"&gt;
+
+&lt;div class="day"&gt;
+&lt;h2&gt; &lt;span class="title"&gt; 第一回:静的Webサイトの構築 &lt;/span&gt; &lt;/h2&gt;
+&lt;div class="body"&gt;
+&lt;h5&gt;rubyのバージョン確認&lt;/h5&gt;
+&lt;pre&gt;ruby -v&lt;/pre&gt;
+&lt;h5&gt;railsのバージョン確認&lt;/h5&gt;
+&lt;pre&gt;rails -v&lt;/pre&gt;
+&lt;h5&gt;ファイル共有&lt;/h5&gt;
+&lt;div class="section"&gt;
+&lt;p&gt;ディレクトリによる共有&lt;/p&gt;
+vgrant側の"/vagrant"ディレクトリと、
+MacOS側のVagrantfileが置かれているディレクトリは共有となっている
+&lt;p&gt;scpによる共有&lt;/p&gt;
+&lt;pre&gt;vagrant ssh-config&lt;/pre&gt;
+上記のコマンドで設定が出力される。
+これをリダイレクトして適当なファイルに保存する。&lt;br /&gt;
+送信するときはscpの-Fをファイルを指定して送信。
+&lt;pre&gt;scp　-F　コンフィグファイル　vagrant@default:送信したいファイルパス&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5&gt;Middlemanのコマンド&lt;/h5&gt;
+&lt;ul&gt;
+&lt;p&gt;新規作成&lt;/p&gt;
+&lt;li&gt;middleman init プロジェクト名&lt;/li&gt;
+&lt;p&gt;サーバ立ち上げ&lt;/p&gt;
+&lt;li&gt;middleman server&lt;/li&gt;
+&lt;p&gt;静的ファイル作成&lt;/p&gt;
+&lt;li&gt;middleman build&lt;/li&gt;
+これはproject/buildディレクトリ以下にファイルが生成される。
+&lt;/ul&gt;
+
+&lt;h5&gt;ポートフォーワディングの設定&lt;/h5&gt;
+Vagrantfileファイルを編集して以下のように設定
+&lt;pre&gt;config.vm.network  "forwaded\_port",guest 4567,host 4000&lt;/pre&gt;
+この場合は仮想OSのポート4567をホスト側4000に対応させている。
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="sidebar"&gt;
+&lt;iframe src="/sotuken.html" width="160" height="500"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;div class="refererlist"&gt;
+&lt;ul&gt;
+&lt;li&gt;refererlist&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="footer"&gt;
+footer
+&lt;/div&gt;
+</content>
+  </entry>
+  <entry>
+    <title>DHCP</title>
+    <link rel="alternate" href="http://blog.url.com/~ikageso/blog/2014/09/23/01.html"/>
+    <id>http://blog.url.com/~ikageso/blog/2014/09/23/01.html</id>
+    <published>2014-09-23T00:00:00+00:00</published>
+    <updated>2014-10-04T14:18:50+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1&gt;ネットワーク&lt;/h1&gt;
+&lt;div class="main"&gt;
+
+&lt;div class="day"&gt;
+&lt;h2&gt;&lt;span class="title"&gt;第一回:DHCPの設定&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="body"&gt;
+&lt;h5&gt;割当メカニズム&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;手動割り当て:事前に設定されたIPを割り当てる&lt;/li&gt;
+  &lt;li&gt;自動割り当て:プールから選択されたIPを永続的に割り当てる&lt;/li&gt;
+  &lt;li&gt;動的割り当て:リースがあり、一定期間のみ割り当てる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;動作&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;DHCPDISCOVER:DHCP要求の開始。ブロードキャストで投げられる&lt;/li&gt;
+  &lt;li&gt;DHCPOFFER:リースするIPアドレスの情報を投げる。また、このときにARPエントリを作成する。&lt;/li&gt;
+  &lt;li&gt;DHCPREQUEST:受理の確認。リースに更新にも投げられる。&lt;/li&gt;
+  &lt;li&gt;DHCPACK:確認応答&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;メッセージ&lt;/h5&gt;
+不明なアドレスには0.0.0.0が使用される。
+
+&lt;h5&gt;設定&lt;/h5&gt;
+&lt;div class="section"&gt;
+&lt;p&gt;IPアドレスの除外&lt;/p&gt;
+&lt;pre&gt;
+ip  dhcp  excluded-address  除外するアドレス
+&lt;/pre&gt;
+&lt;p&gt;プールの設定&lt;/p&gt;
+&lt;pre&gt;
+ip  dhcp  pool  プール名
+&lt;/pre&gt;
+これでDHCPv4コンフィグレーションモードに移る。
+&lt;/div&gt;
+以下、DHCPv4コンフィグレーションモードで設定できるコマンド
+&lt;div class="section"&gt;
+&lt;p&gt;仕様可能なアドレスの設定&lt;/p&gt;
+&lt;pre&gt;
+network  ネットワークアドレス  サブネットマスク
+&lt;/pre&gt;
+&lt;p&gt;デフォルトゲートウェイ&lt;/p&gt;
+&lt;pre&gt;
+default-router  IPアドレス
+&lt;/pre&gt;
+&lt;p&gt;DNSサーバ&lt;/p&gt;
+&lt;pre&gt;
+dns-server  IPアドレス
+&lt;/pre&gt;
+&lt;p&gt;ドメイン名&lt;/p&gt;
+&lt;pre&gt;
+domain-name  ドメイン名
+&lt;/pre&gt;
+&lt;p&gt;リース期間&lt;/p&gt;
+&lt;pre&gt;
+lease  日  時  分
+&lt;/pre&gt;
+デフォルトは1日である。
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="sidebar"&gt;
+&lt;iframe src="/~ikageso/network.html" width="160" height="500"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</content>
+  </entry>
+  <entry>
+    <title>第一回卒研ゼミ</title>
+    <link rel="alternate" href="http://blog.url.com/~ikageso/blog/2014/09/17/01.html"/>
+    <id>http://blog.url.com/~ikageso/blog/2014/09/17/01.html</id>
+    <published>2014-09-17T00:00:00+00:00</published>
+    <updated>2014-10-04T13:35:13+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1&gt;卒研ゼミ&lt;/h1&gt;
+&lt;div class="main"&gt;
+
+&lt;div class="day"&gt;
+&lt;h2&gt;&lt;span class="title"&gt;第一回:静的Webサイトの構築&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="body"&gt;
+&lt;h5&gt;rubyのバージョン確認&lt;/h5&gt;
+&lt;pre&gt;ruby -v&lt;/pre&gt;
+&lt;h5&gt;railsのバージョン確認&lt;/h5&gt;
+&lt;pre&gt;rails -v&lt;/pre&gt;
+&lt;h5&gt;ファイル共有&lt;/h5&gt;
+&lt;div class="section"&gt;
+&lt;p&gt;ディレクトリによる共有&lt;/p&gt;
+vgrant側の"/vagrant"ディレクトリと、
+MacOS側のVagrantfileが置かれているディレクトリは共有となっている
+&lt;p&gt;scpによる共有&lt;/p&gt;
+&lt;pre&gt;vagrant ssh-config&lt;/pre&gt;
+上記のコマンドで設定が出力される。
+これをリダイレクトして適当なファイルに保存する。&lt;br /&gt;
+送信するときはscpの-Fをファイルを指定して送信。
+&lt;pre&gt;scp　-F　コンフィグファイル　vagrant@default:送信したいファイルパス&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5&gt;Middlemanのコマンド&lt;/h5&gt;
+&lt;ul&gt;
+&lt;p&gt;新規作成&lt;/p&gt;
+&lt;li&gt;middleman init プロジェクト名&lt;/li&gt;
+&lt;p&gt;サーバ立ち上げ&lt;/p&gt;
+&lt;li&gt;middleman server&lt;/li&gt;
+&lt;p&gt;静的ファイル作成&lt;/p&gt;
+&lt;li&gt;middleman build&lt;/li&gt;
+これはproject/buildディレクトリ以下にファイルが生成される。
+&lt;/ul&gt;
+
+&lt;h5&gt;ポートフォーワディングの設定&lt;/h5&gt;
+Vagrantfileファイルを編集して以下のように設定
+&lt;pre&gt;config.vm.network  "forwaded\_port",guest 4567,host 4000&lt;/pre&gt;
+この場合は仮想OSのポート4567をホスト側4000に対応させている。
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="sidebar"&gt;
+&lt;iframe src="/~ikageso/sotuken.html" width="160" height="500"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;div class="refererlist"&gt;
+&lt;ul&gt;
+&lt;li&gt;refererlist&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="footer"&gt;
+footer
+&lt;/div&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Example Article</title>
+    <link rel="alternate" href="http://blog.url.com/~ikageso/blog/2012/01/01/example-article.html"/>
+    <id>http://blog.url.com/~ikageso/blog/2012/01/01/example-article.html</id>
+    <published>2012-01-01T00:00:00+00:00</published>
+    <updated>2014-10-04T13:35:13+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;This is an example article. You probably want to delete it and write your own articles!&lt;/p&gt;
+</content>
+  </entry>
+</feed>
