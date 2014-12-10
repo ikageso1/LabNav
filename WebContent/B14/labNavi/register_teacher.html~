@@ -1,0 +1,6 @@
+<script type="text/javascript" src="register_teacher.js"></script>
+
+<form>
+  <select name="研究室" id="lab">
+  </select>
+</form>
