@@ -4,7 +4,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>420</x>
+      <x>460</x>
       <y>230</y>
       <w>470</w>
       <h>110</h>
@@ -16,7 +16,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>420</x>
+      <x>460</x>
       <y>300</y>
       <w>470</w>
       <h>100</h>
@@ -28,7 +28,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>70</x>
+      <x>110</x>
       <y>320</y>
       <w>330</w>
       <h>200</h>
@@ -40,55 +40,55 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>100</x>
-      <y>470</y>
-      <w>320</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-メールのリンクをクリック(未配属)</panel_attributes>
-    <additional_attributes>300;50;30;50</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>40</x>
+      <x>190</x>
       <y>490</y>
-      <w>380</w>
+      <w>270</w>
       <h>150</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-メールのリンクをクリック(配属済)</panel_attributes>
-    <additional_attributes>360;130;140;130;90;30</additional_attributes>
+メールのリンクをクリック(学生)</panel_attributes>
+    <additional_attributes>250;30;30;130</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>370</x>
-      <y>320</y>
-      <w>370</w>
-      <h>210</h>
+      <x>190</x>
+      <y>570</y>
+      <w>270</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-トップページへのリンクを押下</panel_attributes>
-    <additional_attributes>30;30;30;160;250;160;250;190;220;190</additional_attributes>
+メールのリンクをクリック(教員)</panel_attributes>
+    <additional_attributes>250;50;30;50</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>410</x>
-      <y>320</y>
-      <w>408</w>
-      <h>320</h>
+      <x>600</x>
+      <y>460</y>
+      <w>230</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 「登録」ボタンを押下</panel_attributes>
-    <additional_attributes>30;30;30;130;320;130;320;300;180;300</additional_attributes>
+    <additional_attributes>210;50;30;50</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>930</x>
+      <x>600</x>
+      <y>490</y>
+      <w>230</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+「登録」ボタンを押下</panel_attributes>
+    <additional_attributes>210;30;30;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>970</x>
       <y>230</y>
       <w>364</w>
       <h>100</h>
@@ -100,7 +100,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>700</x>
+      <x>740</x>
       <y>100</y>
       <w>268</w>
       <h>220</h>
@@ -112,7 +112,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>880</x>
+      <x>920</x>
       <y>100</y>
       <w>250</w>
       <h>220</h>
@@ -124,7 +124,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>900</x>
+      <x>940</x>
       <y>0</y>
       <w>266</w>
       <h>130</h>
@@ -136,7 +136,7 @@
   <element>
     <type>com.umlet.element.custom.InitialState</type>
     <coordinates>
-      <x>230</x>
+      <x>270</x>
       <y>310</y>
       <w>20</w>
       <h>20</h>
@@ -147,7 +147,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>220</x>
+      <x>260</x>
       <y>290</y>
       <w>140</w>
       <h>50</h>
@@ -158,7 +158,7 @@
   <element>
     <type>com.umlet.element.custom.State</type>
     <coordinates>
-      <x>340</x>
+      <x>380</x>
       <y>300</y>
       <w>110</w>
       <h>50</h>
@@ -170,7 +170,7 @@
   <element>
     <type>com.umlet.element.custom.State</type>
     <coordinates>
-      <x>0</x>
+      <x>40</x>
       <y>500</y>
       <w>130</w>
       <h>40</h>
@@ -182,31 +182,31 @@
   <element>
     <type>com.umlet.element.custom.State</type>
     <coordinates>
-      <x>400</x>
+      <x>440</x>
       <y>500</y>
       <w>190</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>register_nonassgin.html
+    <panel_attributes>register_student.html
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.custom.State</type>
     <coordinates>
-      <x>400</x>
+      <x>440</x>
       <y>600</y>
       <w>190</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>register_assigned.html
+    <panel_attributes>register_teacher.html
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.custom.State</type>
     <coordinates>
-      <x>840</x>
+      <x>880</x>
       <y>90</y>
       <w>130</w>
       <h>40</h>
@@ -218,18 +218,19 @@
   <element>
     <type>com.umlet.element.custom.State</type>
     <coordinates>
-      <x>870</x>
+      <x>910</x>
       <y>300</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>toppage.html</panel_attributes>
+    <panel_attributes>toppage.html
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>920</x>
+      <x>960</x>
       <y>300</y>
       <w>322</w>
       <h>90</h>
@@ -241,7 +242,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>750</x>
+      <x>790</x>
       <y>310</y>
       <w>336</w>
       <h>120</h>
@@ -249,5 +250,53 @@
     <panel_attributes>lt=&lt;-
 「ランキング」タブを押下/ランキングを表示</panel_attributes>
     <additional_attributes>150;30;150;100;190;100;190;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>60</x>
+      <y>600</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>メールボックス
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>810</x>
+      <y>500</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>registered.html
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>0</x>
+      <y>510</y>
+      <w>216</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+「登録」ボタンをクリック</panel_attributes>
+    <additional_attributes>130;90;100;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>420</x>
+      <y>320</y>
+      <w>480</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+数秒待つ</panel_attributes>
+    <additional_attributes>30;30;30;120;460;130;460;180</additional_attributes>
   </element>
 </diagram>
