@@ -4,17 +4,21 @@
 <title>ラボナビへようこそ！</title>
 	<h1>ラボナビ</h1>
 	<div id="login">
-		ユーザーID<input id="user_id" type="text"/><br>
-		パスワード<input id="password" type="password"/>
-		<button id="Login_button">ログイン</button>
+		ユーザーID
+		<p><input id="user_id" type="text"/></p><br>
+		パスワード
+		<p><input id="password" type="password"/></p>
+		<p class="login"><input type="submit" name="Login_button" value="ログイン"></p>
 	</div>
 	<fieldset>
 		ラボナビは学生と研究室を結ぶ<br>
 		近畿大学限定の研究室情報サイトです。<br>
 	</fieldset><br>
-	<div id="new_user">
-		<button id="newUser">新規会員登録</button>
-	</div>
+	<form action="register.html">
+		<div id="new_user">
+			<p class="register"><input type="submit" name="registerButton" value="新規会員登録"></p>
+		</div>
+	</form>
 	
 	
 	
