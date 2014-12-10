@@ -1,0 +1,63 @@
+/* 構造に関する記述 */
+.list {
+  display: table;
+  width: 100%;
+}
+.list-box {
+  display: table-cell;
+  width: 193;
+  padding: 5px;
+  vertical-align: up;
+}
+.list-img {
+  max-height: auto;
+  overflow: hidden;
+  text-align: left;
+}
+.list-img img {
+  width: auto;
+}
+ 
+/* 中身のデザインに関する記述 */
+.list-text h2 {
+  color: #000;
+  font-size: 14px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+#menu ul{ 
+margin: 0; 
+padding: 0; 
+list-style: none; 
+}
+#menu li{ 
+display: inline; 
+padding: 0; 
+margin: 0; 
+float: left;
+}
+#menu li a{
+display: block; 
+border-left: 8px solid #C97556;
+background-color: #474655;
+padding: 3px 10px;
+text-decoration: none;
+color: #E1E2CF;
+width: 100px; 
+margin: 1px 0px;
+text-align: left;
+font-size: 14px;
+}
+#menu li a:hover{
+border-left: 8px solid #990033;
+background-color: #474655;
+}
+
