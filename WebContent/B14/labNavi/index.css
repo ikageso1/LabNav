@@ -27,7 +27,7 @@ fieldset{
   	text-decoration: none;
 }
 
-.register input{
+.register input:hover{
 	background: #3cb0fd;
   	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
   	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);

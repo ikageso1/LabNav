@@ -27,14 +27,13 @@ fieldset{
   	text-decoration: none;
 }
 
-#register: hover{
-	background: #fc3c3c;
-  	background-image: -webkit-linear-gradient(top, #fc3c3c, #3498db);
-  	background-image: -moz-linear-gradient(top, #fc3c3c, #3498db);
-  	background-image: -ms-linear-gradient(top, #fc3c3c, #3498db);
-  	background-image: -o-linear-gradient(top, #fc3c3c, #3498db);
-  	background-image: linear-gradient(to bottom, #fc3c3c, #3498db);
+#register:hover {
+	background: #34d968;
+  	background-image: -webkit-linear-gradient(top, #34d968, #34d968);
+  	background-image: -moz-linear-gradient(top, #34d968, #34d968);
+  	background-image: -ms-linear-gradient(top, #34d968, #34d968);
+  	background-image: -o-linear-gradient(top, #34d968, #34d968);
+  	background-image: linear-gradient(to bottom, #34d968, #34d968);
   	text-decoration: none;
 }
-
 */
