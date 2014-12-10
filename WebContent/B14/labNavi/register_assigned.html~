@@ -1,2 +1,6 @@
-<input type="submit" value="登録">
+<script type="text/javascript" src="register_assgined.js"></script>
 
+<form>
+	研究室を選択して下さい：<select name="研究室" id="lab"></select>
+</form>
+<input type="submit" value="登録">
