@@ -243,8 +243,8 @@ for(String textline : textlines) {
     <coordinates>
       <x>88</x>
       <y>0</y>
-      <w>128</w>
-      <h>56</h>
+      <w>129</w>
+      <h>57</h>
     </coordinates>
     <panel_attributes>Client Side
 View/Controller</panel_attributes>
@@ -417,11 +417,11 @@ for(String textline : textlines) {
     <coordinates>
       <x>456</x>
       <y>360</y>
-      <w>168</w>
-      <h>48</h>
+      <w>800</w>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>152;32;24;24</additional_attributes>
+    <additional_attributes>784;208;96;216;24;24</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
@@ -673,13 +673,13 @@ m2=1..n</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>496</x>
+      <x>456</x>
       <y>128</y>
-      <w>752</w>
+      <w>792</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>736;24;24;24</additional_attributes>
+    <additional_attributes>776;24;24;24</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
@@ -724,5 +724,16 @@ m2=1..n</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>416;24;152;32;24;280</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>456</x>
+      <y>160</y>
+      <w>792</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>776;24;88;24;24;224</additional_attributes>
   </element>
 </diagram>
