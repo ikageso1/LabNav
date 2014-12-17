@@ -1,0 +1,26 @@
+public class LabNav{
+	private ArrayList<Student> students;
+	private ArrayList<Laboratory> laboratoryies;
+	private ArrayList<Teacher> teachers;
+	public LabNav{
+	}
+	public void createNewUser(String name,String email,String password){
+	}
+	public void setUser(int user_id){
+	}
+	public void getLaboratory(int laboratory_id){
+	}
+	public boolean login(String email,String password){
+					for(Student student:students){
+						if(email == student.getEmail()){
+							 if(password == student.getPassword()){
+							 	return true;
+							 }
+							 else{
+								return false;
+							 }
+						}
+					}
+					return false;
+	}
+}
