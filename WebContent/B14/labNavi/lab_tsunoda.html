@@ -23,23 +23,49 @@
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    
+    <script type="text/javascript" >
+      var app = angular.module('PageNavi',['ui.bootstrap']);
+      app.controller('MainCtrl',
+        function($scope) {
+          $scope.isCollapsed = true;
+        }
+      );
+    </script> 
   </head>
 
-	 <nav class="navbar navbar-default navbar-fixed-top">
-     	<div class="container-fluid">
-	        <div class="navbar-header">
-                <a class="navbar-brand" href="main.html">ラボナビ</a>
-			</div>
-			<ul class="nav navbar-nav">
-		 		<li><img src="img/maguro.png" width="70px"></li>
-		  		<li><a href="main.html">メインメニュー</a></li>
-		  		<li><a href="desired_lab_rank.html">ランキング</a></li>
-		  		<li><a href="#">ログアウト</a></li>
-			</ul>
-        </div>
-     </nav>
+<body ng-app='PageNavi' ng-controller="MainCtrl">
+
+ <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
       
-<div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+            <span class="sr-only">メニューナビゲーション</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="main.html">ラボナビ</a>
+          <img alt="" src="img/maguro.png" width="70px">
+        </div>
+        
+        <div collapse="isCollapsed" class="navbar-collapse">
+        	<ul class="nav navbar-nav">
+			  <li><a href="main.html">メインメニュー</a></li>
+			  <li><a href="desired_lab_rank.html">ランキング</a></li>
+			  <li><a href="#">ログアウト</a></li>
+			</ul>
+          
+        </div>
+      </div>
+      
+    </nav> 
+
     <div class="col-md-12">
         <div class="center-block text-center">
             <h1>ソフトウェア工学研究室</h1>
@@ -75,4 +101,5 @@
         <!--/container-->
     </div>
 </div>
+</body>
 </html>
