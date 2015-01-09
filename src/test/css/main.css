@@ -1,0 +1,12 @@
+.imgp{
+    position:relative;
+    text-align: center;
+}
+
+.rating{
+    position:absolute;
+    bottom:0px;
+    width:210px;
+    hight:200px;
+    background-color:rgba(0,0,0,0.6);
+}
