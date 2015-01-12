@@ -11,6 +11,7 @@
     <!-- Bootstrap -->
     <link  type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="css/main.css" rel="stylesheet">
+    <link type="text/css" href="css/navBarStyle.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,7 +49,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="main.html">
-          <img alt="" src="img/Brand-Image.png" width="140px">
+          <img alt="" src="img/Brand-Image.png" class="img-Brand">
           </a>
         </div>
         
@@ -60,9 +61,10 @@
         </div>
       </div>    
 </nav> 
-
+<center>
 		<h1>ラボナビ　新規会員登録</h1>
-		ラボナビを使用するにあたって会員登録を行ってください。<br>
+		ラボナビを使用するにあたって会員登録を行ってください。<br><br><br><br>
+</center>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-offset-2 col-md-8">
@@ -82,12 +84,12 @@
 						<th><input id="repassword" type="password" name="password" /></th>
 					</tr>
 					<tr>
-						<th>メールアドレス</th>
-						<th><input id="mail" type="text" name="password" /></th>
+						<th>メールアドレス(Kindai Mailのみ可)</th>
+						<th><input id="mail" type="text" name="password" placeholder="ex)〜@kindai.ac.jp"/></th>
 					</tr>
 					<tr>
 						<th>メールアドレス(確認用)</th>
-						<th><input id="remail" type="text" name="password" /></th>
+						<th><input id="remail" type="text" name="password"placeholder="ex)〜@kindai.ac.jp" /></th>
 					</tr>
 				</table>
 				</div>
