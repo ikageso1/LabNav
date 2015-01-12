@@ -82,7 +82,7 @@
                 "email": {
                     // Shamelessly lifted from Scott Gonzalez via the Bassistance Validation plugin http://projects.scottsplayground.com/email_address_validation/
                     "regex": /^([a-zA-Z0-9])+([\.a-zA-Z0-9_-])*@([\.a-zA-Z0-9_-])*kindai.ac.jp$/i,
-                    "alertText": "* メールアドレスが正しくありません"
+                    "alertText": "* 指定のメールアドレスではありません"
                 },
                 "integer": {
                     "regex": /^[\-\+]?\d+$/,
