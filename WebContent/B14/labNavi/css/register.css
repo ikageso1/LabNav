@@ -1,5 +1,5 @@
 
-#register{
+button#register{
 	background: #ff8f05;
 	background-image: -webkit-linear-gradient(top, #ff8f05, #ff5900);
   	background-image: -moz-linear-gradient(top, #ff8f05, #ff5900);
@@ -19,7 +19,7 @@
   	text-decoration: none;
 }
 
-#register:hover {
+button#register:hover {
 	background: #34d968;
   	background-image: -webkit-linear-gradient(top, #34d968, #34d968);
   	background-image: -moz-linear-gradient(top, #34d968, #34d968);
