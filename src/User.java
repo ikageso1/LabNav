@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.Date;
 
 public class User{
 	protected int user_id;
@@ -35,7 +35,7 @@ public class User{
 		Connection connection = null;
 
 		try{
-				connection = DriverManager.getConnection("jdbc:sqlite:tmpUser.db");
+				connection = DriverManager.getConnection("jdbc:sqlite:db/tmpUser.db");
 				Statement statement = connection.createStatement();
 				statement.setQueryTimeout(30);  // set timeout to 30 sec.
 				
@@ -43,8 +43,8 @@ public class User{
 				if(isTeacher)temp = 1;
 				else temp = 0;
 				// 登録
-				statement.executeUpdate("insert into user(name,email,password,isTeacher)"
-					  +	"values('"+name+"','"+email+"','"+password+"',"+temp+")");
+				statement.executeUpdate("insert into user(name,email,password,isTeacher,date)"
+					  +	"values('"+name+"','"+email+"','"+password+"',"+temp+",'"+new Date()+"')");
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			return false;
@@ -71,7 +71,7 @@ public class User{
 		Connection connection = null;
 
 		try{
-			connection = DriverManager.getConnection("jdbc:sqlite:user.db");
+			connection = DriverManager.getConnection("jdbc:sqlite:db/user.db");
 			Statement statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // set timeout to 30 sec.
 

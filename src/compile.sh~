@@ -1,0 +1,3 @@
+javac -J-Dfile.encoding=UTF-8 -cp "../lib/jetty/*:./mail/javax.mail.jar:sqlite-jdbc-3.8.7.jar:./" LabNav.java
+java -Dfile.encoding=UTF-8 -cp "../lib/jetty/*:./mail/javax.mail.jar:sqlite-jdbc-3.8.7.jar:./*"  
+

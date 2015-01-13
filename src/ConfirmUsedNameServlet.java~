@@ -25,12 +25,11 @@ public class ConfirmUsedNameServlet extends HttpServlet {
 	String fieldId = (String)request.getAttribute("fieldId");
 	response.setContentType("application/json");
 	PrintWriter writer = response.getWriter();
-	writer.append('{');
+	writer.append('[');
   writer.append("\"userId\"").append(",");
-	if(isOK)writer.append("true").append(",");
-	else writer.append("false").append(",");
-	writer.append("test");
-	writer.append('}');
+	if(isOK)writer.append("true"); //,\"you can use this name.\"");
+	else writer.append("false"); // ,\"your name has been used.\"");
+	writer.append(']');
 	writer.flush();
 	
     }
