@@ -1,12 +1,21 @@
-.imgp{
-    position:relative;
-    text-align: center;
-}
-
 .rating{
-    position:absolute;
+    margin: 0 auto;
+    height: 30px;
     bottom:0px;
     width:210px;
-    hight:200px;
     background-color:rgba(0,0,0,0.6);
+}
+
+#body{
+	background-color: #FEFEFD;
+}
+
+#CopyRight{
+	padding-top: 60px;
+}
+
+html{
+	padding-top: 70px;
+	margin-bottom: 1em;
+	background-color: #FEFEFD;
 }

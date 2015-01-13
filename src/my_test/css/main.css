@@ -1,0 +1,11 @@
+.rating{
+    margin: 0 auto;
+    height: 30px;
+    bottom:0px;
+    width:210px;
+    background-color:rgba(0,0,0,0.6);
+}
+
+body{
+	padding-top: 70px;
+	}
