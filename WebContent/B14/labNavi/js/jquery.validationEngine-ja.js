@@ -118,6 +118,12 @@
                     "alertText": "* 半角英数で入力してください"
                 },
                 // --- CUSTOM RULES -- Those are specific to the demos, they can be removed or changed to your likings
+		"myRule":{
+		    "url": "ConfirmUsedNameServlet",
+		    "extraData": "name=eric",
+		    "alertText": "* 既に使われているユーザー名です",
+		    "alertTextLoad": "ユーザー名が使用できるか確認中です"
+		},
                 "ajaxUserCall": {
                     "url": "ajaxValidateFieldUser",
                     // you may want to pass extra data on the ajax call
