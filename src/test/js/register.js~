@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var pass = $(':password[name="password"]').val();
 var repass = $(':password[name="password"]').val();
 var mail = $(':text[name="mail"]').val();
@@ -12,3 +13,33 @@ jQuery("#userId input:text").on('click blur keydown keyup keypress change',funct
     }
 }
     
+=======
+function register_func(){
+	var userId = $("#userId").val();
+	var password = $("#password").val();
+	var email = $("#mail").val();
+
+	xmlHttpRequest = new XMLHttpRequest();
+	xmlHttpRequest.onreadystatechange = receive;
+	xmlHttpRequest.open("GET", url, true);
+	xmlHttpRequest.send(null);
+}
+
+function receive() {
+	if(xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+		//console.log(xmlHttpRequest.responseText);   
+		var response = eval("(" + xmlHttpRequest.responseText + ")");
+		var answerElement = document.getElementById("output");
+		answerElement.innerHTML = response.answer;
+		if(response. == "false"){
+			var errlog = "<div class='alert alert-danger' role='alert'>";
+			errlog += "Error: Your login information is incorrect.";
+			errlog +=  "</div>";
+
+		}
+	}
+}
+
+$("#register").click(register_func);
+
+>>>>>>> FETCH_HEAD

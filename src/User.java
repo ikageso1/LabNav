@@ -19,12 +19,20 @@ public class User{
 		this.name = name;
 		this.email = email;
 		this.password = password;
+<<<<<<< HEAD
 		// this.time = (new Date()).toString();
+=======
+		this.time = (new Date()).toString();
+>>>>>>> FETCH_HEAD
 	}
 	/**
 	 * @brief 仮ユーザを登録する
 	 */
+<<<<<<< HEAD
 	public boolean createTemporary(boolean isTeacher){
+=======
+	public boolean createTemporary(){
+>>>>>>> FETCH_HEAD
 		try{
 			// load
 			Class.forName("org.sqlite.JDBC");
@@ -43,8 +51,13 @@ public class User{
 				if(isTeacher)temp = 1;
 				else temp = 0;
 				// 登録
+<<<<<<< HEAD
 				statement.executeUpdate("insert into user(name,email,password,isTeacher)"
 					  +	"values('"+name+"','"+email+"','"+password+"',"+temp+")");
+=======
+				statement.executeUpdate("insert into user(name,email,password,time)"
+					  +	"values('"+name+"','"+email+"','"+password+"','"+time+"')");
+>>>>>>> FETCH_HEAD
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			return false;
@@ -56,6 +69,7 @@ public class User{
 			}catch(SQLException e){
 				System.err.println(e);
 				return false;
+<<<<<<< HEAD
 			}
 		}
 		return true;
@@ -92,9 +106,14 @@ public class User{
 			}catch(SQLException e){
 				System.err.println(e);
 				return false;
+=======
+>>>>>>> FETCH_HEAD
 			}
+			return true;
 		}
 		return true;
+	}
+	public boolean create(){
 	}
 	public static void main(String args[]){
 		User user = new User("ika","1210370052g@kindai.ac.jp","34673467");

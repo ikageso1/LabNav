@@ -6,6 +6,7 @@
     background-color:rgba(0,0,0,0.6);
 }
 
+<<<<<<< HEAD
 #body{
 	background-color: #FEFEFD;
 }
@@ -19,3 +20,8 @@ html{
 	margin-bottom: 1em;
 	background-color: #FEFEFD;
 }
+=======
+body{
+	padding-top: 70px;
+	}
+>>>>>>> FETCH_HEAD
