@@ -106,14 +106,13 @@ public class LabNav{
 			props.put("mail.smtp.starttls.enable", "true");
 			// セッションの取得
 			Session session = Session.getInstance(props);
-
 			// MimeMessageの取得と設定
 			Message msg = new MimeMessage(session);
 			// 送信者設定
 			msg.setFrom(new InternetAddress("kindailabnavi@gmail.com"));
 			// 宛先設定
 			//msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("n4keitaro@gmail.com", false));
-			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email,false));
 			// タイトル設定
 			msg.setSubject("ラボナビ運営部:ご登録ありがとうございます");
 			String text = "ラボナビを登録していただきありがとう御座います。\n";
