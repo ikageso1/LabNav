@@ -1,5 +1,3 @@
-package labnav;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -10,24 +8,28 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ConfirmUsedNameServlet extends HttpServlet {
 
-    static final long serialVersionUID = 1L;
-    public void init() throws ServletException {
-	// this.getServletContext().setAttribute("visitNum","0");
-	
-    }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-	String loginId = request.getParameter("loginId");
-	
-	LabNav labnav = (LabNav)getServletContext().getAttribute("labnav");
-	
-	boolean isOK = labnav.confirm_usedname(loginId);
+	static final long serialVersionUID = 1L;
+	public void init() throws ServletException {
+		if(this.getServletContext().getAttribute("labnav")==null){
+		   this.getServletContext().setAttribute("labnav",new LabNav());
+		}
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		String loginId = request.getParameter("fieldValue");
 
-	// Jasnに変換
+		LabNav labnav = (LabNav)getServletContext().getAttribute("labnav");
+
+		boolean isOK = labnav.confirm_usedname(loginId);
+
+		// Jasnに変換
+	String fieldId = (String)request.getAttribute("fieldId");
 	response.setContentType("application/json");
 	PrintWriter writer = response.getWriter();
 	writer.append('{');
-	if(isOK)writer.append("\"login\":\"").append("true").append("\"");
-	else writer.append("\"login\":\"").append("false").append("\"");
+  writer.append("\"userId\"").append(",");
+	if(isOK)writer.append("true").append(",");
+	else writer.append("false").append(",");
+	writer.append("test");
 	writer.append('}');
 	writer.flush();
 	

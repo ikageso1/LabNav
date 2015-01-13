@@ -12,7 +12,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class LabNav{
-<<<<<<< HEAD
 	private ArrayList<Student> students = new ArrayList<Student>();
 	//private ArrayList<Laboratory> laboratoryies = new ArrayList<Laboratory>();
 	private ArrayList<Teacher> teachers = new ArrayList<Teacher>();
@@ -27,7 +26,7 @@ public class LabNav{
 		Connection connection = null;
 
 		try{
-			connection = DriverManager.getConnection("jdbc:sqlite:user.db");
+			connection = DriverManager.getConnection("jdbc:sqlite:db/user.db");
 			Statement statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
@@ -73,12 +72,6 @@ public class LabNav{
 			}
 		}
 		return true;
-=======
-	//private ArrayList<Student> students;
-	//private ArrayList<Laboratory> laboratoryies;
-	//private ArrayList<Teacher> teachers;
-	public LabNav(){
->>>>>>> FETCH_HEAD
 	}
 	public void createNewUser(String name,String email,String password){
 	}
@@ -86,7 +79,6 @@ public class LabNav{
 	}
 	public void getLaboratory(int laboratory_id){
 	}
-<<<<<<< HEAD
 	/*
 =======
 >>>>>>> FETCH_HEAD
@@ -101,15 +93,6 @@ public class LabNav{
 	public boolean createTemporaryUser(String name,String email,String password,boolean isTeacher){
 		User tempUser = new User(name,email,password);
 		tempUser.createTemporary(isTeacher);
-=======
-	}
-	
-	// JavaでGmailからメールを送信するサンプル（JavaMail使用）
-	public boolean createTemporaryUser(String name,String email,String password){
-		User tempUser = new User(name,email,password);
-		tempUser.createTempolary();
->>>>>>> FETCH_HEAD
-
 		try {
 			// プロパティの設定
 			Properties props = System.getProperties();
@@ -151,7 +134,6 @@ public class LabNav{
 			} finally {
 				t.close();
 			}
-<<<<<<< HEAD
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -180,30 +162,3 @@ public class LabNav{
 		System.out.println(test.confirm_usedname("三井い"));
 	}
 }
-=======
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return true;
-	}
-}
-
-
-public boolean login(String email,String password){
-	ArrayList<User> users = ArrayList<User>(students);
-	for(User user:users){
-		if(email == user.getEmail()){
-			if(password == user.getPassword()){
-				
-				return true;
-			}
-			else{
-				return false;
-			}
-		}
-	}
-	return false;
-}
-
->>>>>>> FETCH_HEAD

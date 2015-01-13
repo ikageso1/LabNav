@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LogoutSrervlet extends HttpServlet {
+public class LoginSrervlet extends HttpServlet {
 
     static final long serialVersionUID = 1L;
     /**
@@ -30,14 +30,8 @@ public class LogoutSrervlet extends HttpServlet {
 	response.setContentType("application/json");
 	PrintWriter writer = response.getWriter();
 	writer.append('{');
-<<<<<<< HEAD
-	if(isOK)writer.append("\"login\":\"").append(true).append("\"");
-	else writer.append("\"login\":\"").append(false).append("\"");
-=======
 	if(isOK)writer.append("\"login\":\"").append("true").append("\"");
 	else writer.append("\"login\":\"").append("false").append("\"");
->>>>>>> FETCH_HEAD
-
 	writer.append('}');
 	writer.flush();
 	
