@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="jp">
   <head>
-    <meta charset="utf-8">
+    <meta content="text/html" charset="utf-8">
     <meta name="generator" content="Bootply" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="img/maguro.png">
     <title>角田研</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-     <link href="css/main.css" rel="stylesheet">
-     <link href="css/styles.css" rel="stylesheet">
+    <link  type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+     <link type="text/css" href="css/main.css" rel="stylesheet">
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,31 +20,30 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
   </head>
 
-
-      <div class="navbar  navbar-fixed-top">
-            <div class="navbar-inner">
-	        
-                <a class="brand" href="main.html">ラボナビ</a>
-		
-		<ul class="nav navbar-nav">
-		  <li><img src="img/maguro.png" width="50px"></li>
-		  <li><a href="main.html">メインメニュー</a></li>
-		  <li><a href="profile.html">プロフィール</a></li>
-		  <li><a href="#">ランキング</a></li>
-		  <li><a href="#">ログアウト</a></li>
-		</ul>
-            </div>
+	 <nav class="navbar navbar-default navbar-fixed-top">
+     	<div class="container-fluid">
+	        <div class="navbar-header">
+                <a class="navbar-brand" href="main.html">ラボナビ</a>
+			</div>
+			<ul class="nav navbar-nav">
+		 		<li><img src="img/maguro.png" width="70px"></li>
+		  		<li><a href="main.html">メインメニュー</a></li>
+		  		<li><a href="desired_lab_rank.html">ランキング</a></li>
+		  		<li><a href="#">ログアウト</a></li>
+			</ul>
         </div>
+     </nav>
+      
 <div class="container">
     <div class="col-md-12">
         <div class="center-block text-center">
             <h1>ソフトウェア工学研究室</h1>
-            <p class="lead">講師　角田　雅照</p>
+            <p class="lead">角田　雅照　講師</p>
         </div>
         <div class="container">
             <div class="menu row">
@@ -58,12 +58,12 @@
                     <hr>
 		       <h3>E-mail: tsunoda@info.kindai.ac.jp</h3>
 		    <hr>
-		   <p> 
-                   <input type="radio" name="rate" ><label for="1">1</label>
-		   <input type="radio" name="rate" ><label for="2">2</label>
-		   <input type="radio" name="rate" ><label for="3">3</label>
-		   <input type="radio" name="rate" ><label for="4">4</label>
-		   <input type="radio" name="rate" ><label for="5">5</label>
+		   <p> 評価：
+           		<input type="radio" name="rate" ><label for="1">1</label>
+		   		<input type="radio" name="rate" ><label for="2">2</label>
+		   		<input type="radio" name="rate" ><label for="3">3</label>
+		   		<input type="radio" name="rate" ><label for="4">4</label>
+		   		<input type="radio" name="rate" ><label for="5">5</label>
 		   </p>
 		   <p>レビューコメント</p>
 <textarea name="intro" rows="10" cols="50"></textarea>

@@ -14,7 +14,6 @@ public class LogoutSrervlet extends HttpServlet {
 	
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-	Number number = new Number();
 	String loginId = request.getParameter("loginId");
 	String password = request.getParameter("password");
 	
@@ -26,8 +25,8 @@ public class LogoutSrervlet extends HttpServlet {
 	response.setContentType("application/json");
 	PrintWriter writer = response.getWriter();
 	writer.append('{');
-	if(isOK)writer.append("\"ok\":\"").append("true").append("\"");
-	else writer.append("\"ok\":\"").append("false").append("\"");
+	if(isOK)writer.append("\"login\":\"").append("true").append("\"");
+	else writer.append("\"login\":\"").append("false").append("\"");
 
 	writer.append('}');
 	writer.flush();
