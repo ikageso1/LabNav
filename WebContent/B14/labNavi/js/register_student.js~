@@ -4,15 +4,15 @@ function addList(){
 	var i;
 	if(isAssigned){
 		var labList = ["自然言語処理研究室","交通情報学研究室","知能情報基礎研究室"];
-		var selectElement = document.createElement("select");
+	
+		var str = "<label class='col-sm-2 control-label'></label>"
+			+ "<div class='col-sm-10'>"
+		  + "<select class='form-control'>";
 		for( i=0;i<labList.length;i++){
-			selectElement.setAttribute("name","研究室"); 
-			var inputElement = document.createElement("option");
-			inputElement.setAttribute("value",String(i));
-			inputElement.innerHTML = labList[i];
-			selectElement.appendChild(inputElement);
+			str += "<option value="+String(i)+">"+labList[i]+"</option>";
 		}
-		labElement.appendChild(selectElement);
+		 str += "</select>" + "</div>";
+	   labElement.innerHTML = str;
 	}
 	else{
 		var child = labElement.childNodes;
