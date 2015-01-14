@@ -11,6 +11,6 @@ public class Teacher extends User{
 		super(name,email,password);
 	}
 	public boolean create(String key){	
-		super.create(true,key);
+		return super.create(true,key);
 	}
 }

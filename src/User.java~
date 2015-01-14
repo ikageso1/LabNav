@@ -16,12 +16,16 @@ public class User{
 	/**
 	 * @brief コンストラクタ
 	 */ 
-	public User(String name,String email,String password,String key){
+	public User(String name,String email,String password){
 		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.key = key;
 		// this.time = (new Date()).toString();
+	}
+	public User(String name,String email,String password){
+	      this.name = name;
+	       this.email = email;
+		      this.password = password;
 	}
 	/**
 	 * @brief 仮ユーザを登録する

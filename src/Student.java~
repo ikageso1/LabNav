@@ -3,7 +3,7 @@ public class Student extends User{
 	 * @override
 	 * @brief 仮ユーザを登録する
 	 */
-	public boolean createTemporary(String ke(){
+	public boolean createTemporary(String key){
 		return createTemporary(false,key);
 	}
 	public Student(String name,String email,String password){

@@ -4,7 +4,7 @@ public class Teacher extends User{
 	 * @brief 仮ユーザを登録する
 	 */
 	public boolean createTemporary(String key){
-		return createTemporary(true,key);
+		return super.createTemporary(true,key);
 	}
 
 	public Teacher(String name,String email,String password){

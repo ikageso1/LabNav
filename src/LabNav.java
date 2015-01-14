@@ -7,7 +7,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.security.MessageDigest;
+
+import javax.crypto.*;
+import java.security.*;
+
 import java.util.ArrayList;
 
 import java.io.IOException;
@@ -98,7 +101,7 @@ public class LabNav{
 			// 取得
 			ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE key = '"+key+"';");
 
-			if(!rs.wasNull()){
+			if(rs.next()){
 				//  行からデータを取得
 				String name = rs.getString("name");
 				String email = rs.getString("email");
@@ -220,7 +223,9 @@ public class LabNav{
 			}catch(java.security.NoSuchAlgorithmException e){
 			
 			}
-			User tempUser = new User(name,email,password,key);
+			User tempUser;
+			if(isTeacher)tempUser = new Teacher(name,email,password);
+			else tempUser = new Student(name,email,password);
 			tempUser.createTemporary(isTeacher,key);
 			try {
 				// プロパティの設定
@@ -246,7 +251,7 @@ public class LabNav{
 				msg.setSubject("ラボナビ運営部:ご登録ありがとうございます");
 				String text = "ラボナビを登録していただきありがとう御座います。\n";
 				text += "お手数ですが、登録を完了していただく為に、以下のURLにアクセスして下さい。\n";
-				text += "localhost:8080:/LabNav/B14/labNavi/RegisterServlet?key=" + key;
+				text += "http://localhost:8080/LabNav/B14/labNavi/RegisterServlet?key=" + key;
 				// 本文設定
 				msg.setText(text);
 				// 送信日時設定
