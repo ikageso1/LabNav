@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class RegisterServlet extends HttpServlet {
+public class RegisterAddtionalInfoServlet extends HttpServlet {
 
 	static final long serialVersionUID = 1L;
 	/**
@@ -18,18 +18,13 @@ public class RegisterServlet extends HttpServlet {
 			this.getServletContext().setAttribute("labnav",new LabNav());
 		}
 	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String key = (String)request.getParameter("key");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		int key = Integer.parseInt((String)request.getParameter("assignedLab"));
+		String userId = (String)request.getSession().getAttribute("usrId");
 		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 
-		labnav.createUser(key,request);
-		String url;
-		if((boolean)request.getSession().getAttribute("isTeacher")){
-			url = "http://localhost:8080/LabNav/B14/labNavi/register_teacher.html";
-		}
-		else{
-			url = "http://localhost:8080/LabNav/B14/labNavi/register_student.html";
-		}
+		labnav.registerAdditionalInfo(userId,request);
+		String url = "http://localhost:8080/LabNav/B14/labNavi/registered.html";
     response.sendRedirect(url);
 		
 		// htmlを出力

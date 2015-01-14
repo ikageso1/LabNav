@@ -3,28 +3,30 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.Date;
 
 public class User{
 	protected int user_id;
 	protected String name;
 	protected String email;
 	protected String password;
+	protected String key;
 	protected String time;
 
 	/**
 	 * @brief コンストラクタ
 	 */ 
-	public User(String name,String email,String password){
+	public User(String name,String email,String password,String key){
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.key = key;
 		// this.time = (new Date()).toString();
 	}
 	/**
 	 * @brief 仮ユーザを登録する
 	 */
-	public boolean createTemporary(boolean isTeacher){
+	public boolean createTemporary(boolean isTeacher,String key){
 		try{
 			// load
 			Class.forName("org.sqlite.JDBC");
@@ -43,8 +45,8 @@ public class User{
 				if(isTeacher)temp = 1;
 				else temp = 0;
 				// 登録
-				statement.executeUpdate("insert into user(name,email,password,isTeacher,date)"
-					  +	"values('"+name+"','"+email+"','"+password+"',"+temp+",'"+new Date()+"')");
+				statement.executeUpdate("insert into user(name,email,password,isTeacher,date,key)"
+					  +	"values('"+name+"','"+email+"','"+password+"',"+temp+",'"+new Date()+"','"+key+"')");
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			return false;
@@ -60,7 +62,7 @@ public class User{
 		}
 		return true;
 	}
-	public boolean create(boolean isTeacher){
+	public boolean create(boolean isTeacher,String key){
 		try{
 			// load
 			Class.forName("org.sqlite.JDBC");
@@ -100,8 +102,8 @@ public class User{
 		 return true;
 	}
 	public static void main(String args[]){
-		User user = new User("ika","1210370052g@kindai.ac.jp","34673467");
-		user.create(false);
+		//User user = new User("ika","1210370052g@kindai.ac.jp","34673467");
+		//user.create(false);
 	}
 	public int getUser_id(){
 		return user_id;

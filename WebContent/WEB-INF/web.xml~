@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <servlet>
-		<servlet-name>LoginServlet</servlet-name>
+		<servlet-name>ConfirmServlet</servlet-name>
 		<servlet-class>ConfirmUsedNameServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
+    <servlet-name>ConfirmServlet</servlet-name>
 		<url-pattern>/B14/labNavi/ConfirmUsedNameServlet</url-pattern>
+	</servlet-mapping>
+
+  <servlet>
+		<servlet-name>RegTempServlet</servlet-name>
+		<servlet-class>RegisterTempServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegTempServlet</servlet-name>
+		<url-pattern>/B14/labNavi/RegisterTempServlet</url-pattern>
   </servlet-mapping>
 </web-app>

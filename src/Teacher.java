@@ -3,11 +3,14 @@ public class Teacher extends User{
 	 * @override
 	 * @brief 仮ユーザを登録する
 	 */
-	public boolean createTemporary(){
-		return createTemporary(true);
+	public boolean createTemporary(String key){
+		return createTemporary(true,key);
 	}
 
 	public Teacher(String name,String email,String password){
 		super(name,email,password);
+	}
+	public boolean create(String key){	
+		return super.create(true,key);
 	}
 }
