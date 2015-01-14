@@ -86,7 +86,7 @@
 						<th></th>
 					</tr>
 					<tr>
-						<th><div id="labList"></form></th>
+						<th>パスワード(半角英数字)</th>
 						<th><input id="password" type="password" name="password" class="validate[required,custom[onlyLetterNumber]]"/></th>
 					</tr>
 					<tr>
