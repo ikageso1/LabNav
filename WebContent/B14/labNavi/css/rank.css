@@ -1,11 +1,19 @@
-.desire{
-	float: left;
+#pop_first, #sati_first, #rate_first{
+	font-size: 30px;
+}
+#pop_second, #sati_second, #rate_second{
+	font-size: 20px;
+}
+#pop_third, #sati_third, #rate_third{
+	font-size: 15px;
 }
 
-.saticefy{
-	float: left;
-}	
-
-.rate{
-	float: left;
+.pop_first_img img, .sati_first_img img, .rate_first_img img {
+	width: 230px;
+}
+.pop_second_img img, .sati_second_img img, .rate_second_img img {
+	width: 200px;
+}
+.pop_third_img img, .sati_third_img img, .rate_third_img img {
+	width: 175px;
 }
