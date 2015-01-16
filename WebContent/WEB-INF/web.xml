@@ -27,5 +27,12 @@
 		<url-pattern>/B14/labNavi/RegisterServlet</url-pattern>
 	</servlet-mapping>
 
-
+<servlet>
+	<servlet-name>RegisterAddtionalInfoServlet</servlet-name>
+		<servlet-class>RegisterAddtionalInfoServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>RegisterAddtionalInfoServlet</servlet-name>
+	<url-pattern>/B14/labNavi/RegisterAddtionalInfoServlet</url-pattern>
+</servlet-mapping>
 </web-app>

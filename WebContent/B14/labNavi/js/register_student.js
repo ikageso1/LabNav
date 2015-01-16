@@ -7,7 +7,7 @@ function addList(){
 	
 		var str = "<label class='col-sm-2 control-label'></label>"
 			+ "<div class='col-sm-10'>"
-		  + "<select class='form-control'>";
+		  + "<select class='form-control' name='assignedLab'>";
 		for( i=0;i<labList.length;i++){
 			str += "<option value="+String(i)+">"+labList[i]+"</option>";
 		}
@@ -21,7 +21,6 @@ function addList(){
 			labElement.removeChild(child[i+1]);
 		}
 	}
-
 }
 
 window.addEventListener("load",function(){

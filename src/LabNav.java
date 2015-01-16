@@ -42,7 +42,7 @@ public class LabNav{
 
 			// 取得
 			ResultSet rs = statement.executeQuery("SELECT * FROM user;");
-			do{
+			while(rs.next()){
 				//  行からデータを取得
 				String name = rs.getString("name");
 				String email = rs.getString("email");
@@ -53,7 +53,7 @@ public class LabNav{
 				else{
 					students.add(new Student(name,email,pass));
 				}
-			}while(rs.next());
+			}
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			System.exit(-1);
@@ -111,12 +111,12 @@ public class LabNav{
 				if(isTeacher){
 					user = new Teacher(name,email,pass);
 					teachers.add(user);
-					((Teacher)user).create();
+					((Teacher)user).create(key);
 				}
 				else{
 					user = new Student(name,email,pass);
 					students.add(user);
-					((Student)user).create();
+					((Student)user).create(key);
 				}
 				request.getSession().setAttribute("userId",name);
 				request.getSession().setAttribute("isTeacher",isTeacher);
@@ -155,12 +155,12 @@ public class LabNav{
 
 			// 取得
 			ResultSet rs = statement.executeQuery("SELECT * FROM assignedLab WHERE name ='" +userId+ "';");
-			if(!rs.wasNull()){
+			if(rs.next()){
 				statement.executeUpdate("update assignedLab set lab = " + assignedLab
 						+ " where name = '"+userId+"';");
 			}else{
 				statement.executeUpdate("insert into assignedLab(name,lab)"
-				+ "values('"+userId+"',"+assignedLab+")");
+				+ "values('"+userId+"',"+assignedLab+");");
 			}
 		}catch(SQLException e){
 			System.err.println(e.getMessage());

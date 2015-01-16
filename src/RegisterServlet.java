@@ -31,13 +31,5 @@ public class RegisterServlet extends HttpServlet {
 			url = "http://localhost:8080/LabNav/B14/labNavi/register_student.html";
 		}
     response.sendRedirect(url);
-		
-		// htmlを出力
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter writer = response.getWriter();
-		writer.append("<html>");
-		writer.append("<p>確認メールを送信しました。</p>");
-		writer.append("</html>");
-		writer.flush();
 	}
 }

@@ -22,11 +22,6 @@ public class User{
 		this.password = password;
 		// this.time = (new Date()).toString();
 	}
-	public User(String name,String email,String password){
-	      this.name = name;
-	       this.email = email;
-		      this.password = password;
-	}
 	/**
 	 * @brief 仮ユーザを登録する
 	 */
@@ -50,7 +45,7 @@ public class User{
 				else temp = 0;
 				// 登録
 				statement.executeUpdate("insert into user(name,email,password,isTeacher,date,key)"
-					  +	"values('"+name+"','"+email+"','"+password+"',"+temp+",'"+new Date()+"','"+key+"')");
+					  +	"values('"+name+"','"+email+"','"+password+"',"+temp+",'"+new Date()+"','"+key+"');");
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			return false;
@@ -86,7 +81,7 @@ public class User{
 			else temp = 0;
 			// 登録
 			statement.executeUpdate("insert into user(name,email,password,isTeacher)"
-					+	"values('"+name+"','"+email+"','"+password+"',"+temp+")");
+					+	"values('"+name+"','"+email+"','"+password+"',"+temp+");");
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			return false;
@@ -100,14 +95,15 @@ public class User{
 				return false;
 			}
 		}
+		System.out.println("hi");
 		return true;
 	}
 	public boolean create(){
 		 return true;
 	}
 	public static void main(String args[]){
-		//User user = new User("ika","1210370052g@kindai.ac.jp","34673467");
-		//user.create(false);
+		User user = new User("mitui","1210370052g@kindai.ac.jp","34673467");
+		user.create(false,"6b22b8116ed8d37f24626d2ba5ab05e0");
 	}
 	public int getUser_id(){
 		return user_id;

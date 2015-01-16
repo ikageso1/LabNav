@@ -45,7 +45,7 @@ public class User{
 				else temp = 0;
 				// 登録
 				statement.executeUpdate("insert into user(name,email,password,isTeacher,date,key)"
-					  +	"values('"+name+"','"+email+"','"+password+"',"+temp+",'"+new Date()+"','"+key+"')");
+					  +	"values('"+name+"','"+email+"','"+password+"',"+temp+",'"+new Date()+"','"+key+"');");
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			return false;
@@ -62,6 +62,7 @@ public class User{
 		return true;
 	}
 	public boolean create(boolean isTeacher,String key){
+		System.out.println("hi");
 		try{
 			// load
 			Class.forName("org.sqlite.JDBC");
@@ -81,7 +82,7 @@ public class User{
 			else temp = 0;
 			// 登録
 			statement.executeUpdate("insert into user(name,email,password,isTeacher)"
-					+	"values('"+name+"','"+email+"','"+password+"',"+temp+")");
+					+	"values('"+name+"','"+email+"','"+password+"',"+temp+");");
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			return false;
@@ -101,8 +102,8 @@ public class User{
 		 return true;
 	}
 	public static void main(String args[]){
-		//User user = new User("ika","1210370052g@kindai.ac.jp","34673467");
-		//user.create(false);
+		User user = new User("mitui","1210370052g@kindai.ac.jp","34673467");
+		user.create(false,"6b22b8116ed8d37f24626d2ba5ab05e0");
 	}
 	public int getUser_id(){
 		return user_id;
