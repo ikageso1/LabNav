@@ -79,9 +79,11 @@ public class User{
 			int temp;
 			if(isTeacher)temp = 1;
 			else temp = 0;
+
 			// 登録
 			statement.executeUpdate("insert into user(name,email,password,isTeacher)"
 					+	"values('"+name+"','"+email+"','"+password+"',"+temp+");");
+
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			return false;

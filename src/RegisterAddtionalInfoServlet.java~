@@ -20,12 +20,14 @@ public class RegisterAddtionalInfoServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String assignedLabStr = (String)request.getParameter("assignedLab");
-		int assignedLab = Integer.parseInt(assignedLabStr);
-		String userId = (String)request.getSession().getAttribute("userId");
-		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
+		if(assignedLabStr != null){
+			int assignedLab = Integer.parseInt(assignedLabStr);
+			String userId = (String)request.getSession().getAttribute("userId");
+			LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 
-    System.out.println(userId +":"+String.valueOf(assignedLab));
-		labnav.registerAdditionalInfo(userId,assignedLab);
+			System.out.println(userId +":"+String.valueOf(assignedLab));
+			labnav.registerAdditionalInfo(userId,assignedLab);
+		}
 		String url = "http://localhost:8080/LabNav/B14/labNavi/registered.html";
     response.sendRedirect(url);
 	}

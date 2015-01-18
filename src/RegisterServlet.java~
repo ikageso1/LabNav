@@ -22,15 +22,24 @@ public class RegisterServlet extends HttpServlet {
 		String key = (String)request.getParameter("key");
 		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 
-		labnav.createUser(key,request);
-		String url;
-	  Boolean isTeacher = (Boolean)request.getSession().getAttribute("isTeacher");
-		if(isTeacher){
-			url = "http://localhost:8080/LabNav/B14/labNavi/register_teacher.html";
+		if(labnav.createUser(key,request)){
+			String url;
+			Boolean isTeacher = (Boolean)request.getSession().getAttribute("isTeacher");
+			if(isTeacher.booleanValue()){
+				url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/register_teacher.html";
+			}
+			else{
+				url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/register_student.html";
+			}
+			response.sendRedirect(url);
 		}
 		else{
-			url = "http://localhost:8080/LabNav/B14/labNavi/register_student.html";
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter writer = response.getWriter();
+			writer.append("<p>不正なKey valueです。</p>");
+			writer.flush();
 		}
-    response.sendRedirect(url);
+
+		}
 	}
 }

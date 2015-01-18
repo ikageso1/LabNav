@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 		System.out.println(password);
 
 		if(isOK){
-			String url = "http://localhost:8080/LabNav/B14/labNavi/main.html";
+			String url = "http://localhost:8080/B14/main.html";
 			response.sendRedirect(url);
 		}else{
 			response.setContentType("text/html;charset=UTF-8");

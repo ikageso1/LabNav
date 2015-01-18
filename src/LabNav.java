@@ -84,7 +84,7 @@ public class LabNav{
 		}
 		return true;
 	}
-	public void createUser(String key,HttpServletRequest request){
+	public boolean createUser(String key,HttpServletRequest request){
 		try{
 			// load
 			Class.forName("org.sqlite.JDBC");
@@ -107,8 +107,12 @@ public class LabNav{
 				String email = rs.getString("email");
 				String pass = rs.getString("password");	
 				boolean isTeacher = rs.getBoolean("isTeacher");
-				System.out.println(name+":"+email+":"+pass);
 				User user;
+				
+				// 閉じる
+				connection.close();
+				connection = null;
+				
 				if(isTeacher){
 					user = new Teacher(name,email,pass);
 					teachers.add(user);
@@ -121,8 +125,9 @@ public class LabNav{
 				}
 				request.getSession().setAttribute("userId",name);
 				request.getSession().setAttribute("isTeacher",isTeacher);
+			}else{
+				return false;
 			}
-
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			System.exit(-1);
@@ -136,7 +141,7 @@ public class LabNav{
 				System.exit(-1);
 			}
 		}
-
+		return true;
 	}
 	
 		public boolean registerAdditionalInfo(String userId,int assignedLab){
@@ -230,7 +235,7 @@ public class LabNav{
 			else tempUser = new Student(name,email,password);
 			tempUser.createTemporary(isTeacher,key);
 
-			// String ENCODE = "ISO-2022-JP";
+			String ENCODE = "UTF-8";
 
 			final Properties props = new Properties();
 
@@ -264,20 +269,19 @@ public class LabNav{
 			final MimeMessage message = new MimeMessage(session);
 			try {
 				final Address addrFrom = new InternetAddress(
-						"kindailabnavi@gmail.com", "ラボナビ運営部");
+						"kindailabnavi@gmail.com", "ラボナビ運営部",ENCODE );
 				message.setFrom(addrFrom);
 				final Address addrTo = new InternetAddress(email);
 				message.addRecipient(Message.RecipientType.TO, addrTo);
 
 				// メールのSubject
-				message.setSubject("ラボナビのご登録ありがとうございます");
+				message.setSubject("ラボナビのご登録ありがとうございます",ENCODE );
 
 				// メール本文。setTextを用いると 自動的に[text/plain]となる。
-				String text = "ラボナビを登録していただきありがとう御座います。\n";
+				String text = "ラボナビを登録していただき有り難う御座います。\n";
 				text += "お手数ですが、登録を完了していただく為に、以下のURLにアクセスして下さい。\n";
 				text += "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/RegisterServlet?key=" + key;
-				
-				message.setText(text);
+				message.setContent(text,"text/plain; charset="+ENCODE);
 
 				// 仮対策: 開始
 				// setTextを呼び出した後に、ヘッダーを 7bitへと上書きします。
