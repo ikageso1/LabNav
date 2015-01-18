@@ -1,5 +1,6 @@
 import java.util.*;
 import javax.mail.*;
+import java.io.UnsupportedEncodingException;
 import javax.mail.internet.*;
 import com.sun.mail.smtp.*;
 import java.sql.Connection;
@@ -36,7 +37,7 @@ public class LabNav{
 		Connection connection = null;
 
 		try{
-			connection = DriverManager.getConnection("jdbc:sqlite:db/user.db");
+			connection = DriverManager.getConnection("jdbc:sqlite:webdb/B14.sqlite3");
 			Statement statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
@@ -92,14 +93,13 @@ public class LabNav{
 			System.exit(-1);
 		}
 		Connection connection = null;
-
 		try{
-			connection = DriverManager.getConnection("jdbc:sqlite:db/tmpUser.db");
+			connection = DriverManager.getConnection("jdbc:sqlite:webdb/B14.sqlite3");
 			Statement statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
 			// 取得
-			ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE key = '"+key+"';");
+			ResultSet rs = statement.executeQuery("SELECT * FROM tmpuser WHERE key = '"+key+"';");
 
 			if(rs.next()){
 				//  行からデータを取得
@@ -107,6 +107,7 @@ public class LabNav{
 				String email = rs.getString("email");
 				String pass = rs.getString("password");	
 				boolean isTeacher = rs.getBoolean("isTeacher");
+				System.out.println(name+":"+email+":"+pass);
 				User user;
 				if(isTeacher){
 					user = new Teacher(name,email,pass);
@@ -149,9 +150,10 @@ public class LabNav{
 		Connection connection = null;
 
 		try{
-			connection = DriverManager.getConnection("jdbc:sqlite:db/user.db");
+			connection = DriverManager.getConnection("jdbc:sqlite:webdb/B14.sqlite3");
 			Statement statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // set timeout to 30 sec.
+			
 
 			// 取得
 			ResultSet rs = statement.executeQuery("SELECT * FROM assignedLab WHERE name ='" +userId+ "';");
@@ -221,12 +223,90 @@ public class LabNav{
 				byte[] digest = md.digest();
 				key = convertDigest(digest);
 			}catch(java.security.NoSuchAlgorithmException e){
-			
+
 			}
 			User tempUser;
 			if(isTeacher)tempUser = new Teacher(name,email,password);
 			else tempUser = new Student(name,email,password);
 			tempUser.createTemporary(isTeacher,key);
+
+			// String ENCODE = "ISO-2022-JP";
+
+			final Properties props = new Properties();
+
+			// 基本情報。ここでは gmailへの接続例を示します。
+			props.setProperty("mail.smtp.host", "smtp.gmail.com");
+			// SSL用にポート番号を変更。
+			props.setProperty("mail.smtp.port", "465");
+
+			// タイムアウト設定
+			props.setProperty("mail.smtp.connectiontimeout", "60000");
+			props.setProperty("mail.smtp.timeout", "60000");
+
+			// 認証
+			props.setProperty("mail.smtp.auth", "true");
+
+			// SSL関連設定
+			props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+			props.setProperty("mail.smtp.socketFactory.fallback", "false");
+			props.setProperty("mail.smtp.socketFactory.port", "465");
+
+			final Session session = Session.getInstance(props, new Authenticator() {
+				protected PasswordAuthentication getPasswordAuthentication() {
+					return new PasswordAuthentication("kindailabnavi@gmail.com", "labn731avi");
+				}
+			});
+
+			// デバッグを行います。標準出力にトレースが出ます。
+			session.setDebug(true);
+
+			// メッセージ内容の設定。
+			final MimeMessage message = new MimeMessage(session);
+			try {
+				final Address addrFrom = new InternetAddress(
+						"kindailabnavi@gmail.com", "ラボナビ運営部");
+				message.setFrom(addrFrom);
+				final Address addrTo = new InternetAddress(email);
+				message.addRecipient(Message.RecipientType.TO, addrTo);
+
+				// メールのSubject
+				message.setSubject("ラボナビのご登録ありがとうございます");
+
+				// メール本文。setTextを用いると 自動的に[text/plain]となる。
+				String text = "ラボナビを登録していただきありがとう御座います。\n";
+				text += "お手数ですが、登録を完了していただく為に、以下のURLにアクセスして下さい。\n";
+				text += "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/RegisterServlet?key=" + key;
+				
+				message.setText(text);
+
+				// 仮対策: 開始
+				// setTextを呼び出した後に、ヘッダーを 7bitへと上書きします。
+				// これは、一部のケータイメールが quoted-printable を処理できないことへの対策となります。
+				message.setHeader("Content-Transfer-Encoding", "7bit");
+				// 仮対策: 終了
+
+				// その他の付加情報。
+				message.addHeader("X-Mailer", "blancoMail 0.1");
+				message.setSentDate(new Date());
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+
+			// メール送信。
+			try {
+				Transport.send(message);
+			} catch (AuthenticationFailedException e) {
+				// 認証失敗は ここに入ります。
+				System.out.println("指定のユーザ名・パスワードでの認証に失敗しました。"
+						+ e.toString());
+			} catch (MessagingException e) {
+				// smtpサーバへの接続失敗は ここに入ります。
+				System.out.println("指定のsmtpサーバへの接続に失敗しました。" + e.toString());
+				e.printStackTrace();
+			}	
+			/*
 			try {
 				// プロパティの設定
 				Properties props = System.getProperties();
@@ -235,7 +315,7 @@ public class LabNav{
 				// 認証（する）
 				props.put("mail.smpt.auth", "true");
 				// ポート指定（サブミッションポート）
-				props.put("mail.smtp.port", "587");
+				props.put("mail.smtp.port", "465");
 				// STARTTLSによる暗号化（する）
 				props.put("mail.smtp.starttls.enable", "true");
 				// セッションの取得
@@ -267,18 +347,32 @@ public class LabNav{
 				} finally {
 					t.close();
 				}
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		*/
+
 			return true;
 		}
 
-		public boolean login(String email,String password){
-			ArrayList<User> users = new ArrayList<User>(students);
-			for(User user:users){
-				if(email == user.getEmail()){
-					if(password == user.getPassword()){
+		public boolean login(String name,String password,HttpServletRequest request){
+			for(User user:students){
+				if(name.equals(user.getName())){
+					if(password.equals(user.getPassword())){
+						request.getSession().setAttribute("userId",name);
+						request.getSession().setAttribute("isTeacher",false);
+						return true;
+					}
+					else{
+						return false;
+					}
+				}
+			}
+			for(User user:teachers){
+				if(name.equals(user.getName())){
+					if(password.equals(user.getPassword())){
+						request.getSession().setAttribute("userId",name);
+						request.getSession().setAttribute("isTeacher",true);
 						return true;
 					}
 					else{
@@ -291,7 +385,6 @@ public class LabNav{
 
 		public static void main(String args[]){
 			LabNav test = new LabNav();
-			System.out.println(test.confirm_usedname("三井"));
-			System.out.println(test.confirm_usedname("三井い"));
+			test.registerAdditionalInfo("ika",1);
 		}
 	}

@@ -24,12 +24,13 @@ public class RegisterServlet extends HttpServlet {
 
 		labnav.createUser(key,request);
 		String url;
-		if(request.getSession().getAttribute("isTeacher").equals("true")){
+	  Boolean isTeacher = (Boolean)request.getSession().getAttribute("isTeacher");
+		if(isTeacher){
 			url = "http://localhost:8080/LabNav/B14/labNavi/register_teacher.html";
 		}
 		else{
 			url = "http://localhost:8080/LabNav/B14/labNavi/register_student.html";
 		}
-    //response.sendRedirect(url);
+    response.sendRedirect(url);
 	}
 }

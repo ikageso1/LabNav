@@ -36,7 +36,7 @@ public class User{
 		Connection connection = null;
 
 		try{
-				connection = DriverManager.getConnection("jdbc:sqlite:db/tmpUser.db");
+				connection = DriverManager.getConnection("jdbc:sqlite:webdb/B14.sqlite3");
 				Statement statement = connection.createStatement();
 				statement.setQueryTimeout(30);  // set timeout to 30 sec.
 				
@@ -44,7 +44,7 @@ public class User{
 				if(isTeacher)temp = 1;
 				else temp = 0;
 				// 登録
-				statement.executeUpdate("insert into user(name,email,password,isTeacher,date,key)"
+				statement.executeUpdate("insert into tmpuser(name,email,password,isTeacher,date,key)"
 					  +	"values('"+name+"','"+email+"','"+password+"',"+temp+",'"+new Date()+"','"+key+"');");
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
@@ -62,7 +62,6 @@ public class User{
 		return true;
 	}
 	public boolean create(boolean isTeacher,String key){
-		System.out.println("hi");
 		try{
 			// load
 			Class.forName("org.sqlite.JDBC");
@@ -73,7 +72,7 @@ public class User{
 		Connection connection = null;
 
 		try{
-			connection = DriverManager.getConnection("jdbc:sqlite:db/user.db");
+			connection = DriverManager.getConnection("jdbc:sqlite:webdb/B14.sqlite3");
 			Statement statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
@@ -102,8 +101,8 @@ public class User{
 		 return true;
 	}
 	public static void main(String args[]){
-		User user = new User("mitui","1210370052g@kindai.ac.jp","34673467");
-		user.create(false,"6b22b8116ed8d37f24626d2ba5ab05e0");
+		//User user = new User("mitui","1210370052g@kindai.ac.jp","34673467");
+		//user.create(false,"6b22b8116ed8d37f24626d2ba5ab05e0");
 	}
 	public int getUser_id(){
 		return user_id;

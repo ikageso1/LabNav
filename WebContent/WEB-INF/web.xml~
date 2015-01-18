@@ -33,6 +33,26 @@
 </servlet>
 <servlet-mapping>
 	<servlet-name>RegisterAddtionalInfoServlet</servlet-name>
-	<url-pattern>/B14/labNav/RegisterAddtionalInfoServlet</url-pattern>
+	<url-pattern>/B14/labNavi/RegisterAddtionalInfoServlet</url-pattern>
 </servlet-mapping>
+
+<servlet>
+	<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>LoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>LoginServlet</servlet-name>
+	<url-pattern>/B14/labNavi/LoginServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>ConfirmSessionServlet</servlet-name>
+		<servlet-class>ConfirmSessionServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ConfirmSessionServlet</servlet-name>
+	<url-pattern>/B14/labNavi/ConfirmSessionServlet</url-pattern>
+</servlet-mapping>
+
+
 </web-app>

@@ -19,20 +19,17 @@ public class RegisterAddtionalInfoServlet extends HttpServlet {
 		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		int assignedLab = Integer.parseInt((String)request.getParameter("assignedLab"));
-		String userId = (String)request.getSession().getAttribute("usrId");
-		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
+		String assignedLabStr = (String)request.getParameter("assignedLab");
+		if(assignedLabStr != null){
+			int assignedLab = Integer.parseInt(assignedLabStr);
+			String userId = (String)request.getSession().getAttribute("userId");
+			LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 
-		labnav.registerAdditionalInfo(userId,assignedLab);
+			System.out.println(userId +":"+String.valueOf(assignedLab));
+			labnav.registerAdditionalInfo(userId,assignedLab);
+		}
 		String url = "http://localhost:8080/LabNav/B14/labNavi/registered.html";
     response.sendRedirect(url);
-		
-		// htmlを出力
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter writer = response.getWriter();
-		writer.append("<html>");
-		writer.append("<p>確認メールを送信しました。</p>");
-		writer.append("</html>");
-		writer.flush();
 	}
 }
+

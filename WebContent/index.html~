@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" href="img/maguro.png">
+<title>ラボナビへようこそ！</title>
+<!-- Bootstrap -->
+    <link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="./js/jquery-2.1.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./js/bootstrap.min.js"></script>
+</head>
+<div id="body">
+<div class="container">
+	<div class="col-md-offset-2">
+    	<img src="img/LabNav_logo.png" alt="">
+	</div>
+	
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        <br><br><br>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-lock"></span> ログインフォーム</div>
+                <div class="panel-body">
+                    <form action="LoginServlet" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">
+                            ユーザーID</label>
+                        <div class="col-sm-6">
+                            <input type="text" name="userId" class="form-control" id="userid" placeholder="ユーザーID" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-4 control-label">
+                            パスワード</label>
+                        <div class="col-sm-6">
+                            <input type="password" name="Password" class="form-control" id="Password" placeholder="パスワード" required>
+                        </div>
+                    </div>
+                    <div class="form-group last">
+                        <div class="col-sm-offset-4 col-sm-4">
+                        	<p class="login"><input type="submit" name="Login_button" value="ログイン"></p>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                <form action="register.html">
+                    IDとパスワードを持っていない方はこちら 
+                    <p class="register">
+                    	<input type="submit" name="registerButton" value="新規会員登録">
+                    </p>
+                </form>
+            </div>
+        </div>
+        
+        	<div id="detail">
+				ラボナビは研究室と学生を結ぶ<br>
+				近畿大学生限定の研究室情報サイトです。<br><br><br>
+			</div>
+			
+    </div>
+</div>
+
+<div class="col-md-6 col-md-offset-5" id="CopyRight">
+	&copy; 2014 B14 Group. All Rights Reserved.
+</div>
+</div>
+</html>	
+	

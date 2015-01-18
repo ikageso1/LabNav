@@ -6,7 +6,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ConfirmServlet</servlet-name>
-		<url-pattern>/B14/labNavi/ConfirmUsedNameServlet</url-pattern>
+		<url-pattern>ConfirmUsedNameServlet</url-pattern>
 	</servlet-mapping>
 
   <servlet>
@@ -15,7 +15,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RegTempServlet</servlet-name>
-		<url-pattern>/B14/labNavi/RegisterTempServlet</url-pattern>
+		<url-pattern>RegisterTempServlet</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -24,7 +24,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
-		<url-pattern>/B14/labNavi/RegisterServlet</url-pattern>
+		<url-pattern>RegisterServlet</url-pattern>
 	</servlet-mapping>
 
 <servlet>
@@ -33,6 +33,26 @@
 </servlet>
 <servlet-mapping>
 	<servlet-name>RegisterAddtionalInfoServlet</servlet-name>
-	<url-pattern>/B14/labNavi/RegisterAddtionalInfoServlet</url-pattern>
+	<url-pattern>RegisterAddtionalInfoServlet</url-pattern>
 </servlet-mapping>
+
+<servlet>
+	<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>LoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>LoginServlet</servlet-name>
+	<url-pattern>LoginServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>ConfirmSessionServlet</servlet-name>
+		<servlet-class>ConfirmSessionServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ConfirmSessionServlet</servlet-name>
+	<url-pattern>ConfirmSessionServlet</url-pattern>
+</servlet-mapping>
+
+
 </web-app>
