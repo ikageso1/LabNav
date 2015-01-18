@@ -28,7 +28,9 @@ public class RegisterAddtionalInfoServlet extends HttpServlet {
 			System.out.println(userId +":"+String.valueOf(assignedLab));
 			labnav.registerAdditionalInfo(userId,assignedLab);
 		}
-		String url = "http://localhost:8080/LabNav/B14/labNavi/registered.html";
+		//String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/registered.html";
+		// ローカルテスト用
+		 String url = "localhost:8080/B14/registered.html";
     response.sendRedirect(url);
 	}
 }

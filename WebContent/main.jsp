@@ -53,7 +53,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="main.html">
+          <a class="navbar-brand" href="main.jsp">
           <img alt="" src="img/Brand-Image.png" class="img-Brand"></a>
         </div>
         <div collapse="isCollapsed" class="navbar-collapse">
