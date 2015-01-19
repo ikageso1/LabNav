@@ -1,5 +1,6 @@
 <%@ page language="java"
-    contentType="text/html; charset=utf-8" %>
+contentType="text/html; charset=utf-8" %>
+<% if(request.getSession().getAttribute("userId") != null){ %>
 <!DOCTYPE html>
 <html lang="jp">
   <head>
@@ -229,4 +230,5 @@
 	&copy; 2014 B14 Group. All Rights Reserved.
 </div>
 </div>
+<% } %>
 </html>

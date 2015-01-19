@@ -19,17 +19,20 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String loginId = request.getParameter("userId");
-		String password = request.getParameter("Password");
+		String labName = request.getParameter("labName");
+		String review = request.getParameter("review");
+		String comment = request.getParameter("comment");
+		
+		String userId = (String)request.getSession().getAttribute("userId");
 
 		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 
-		boolean isOK = labnav.login(loginId,password,request);
+		boolean isOK = labnav.submitReview(userId,labName,review,comment);
 
 		if(isOK){
-			// String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.jsp";
+			// String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
 			// ローカルテスト用
-			String url = "http://localhost:8080/B14/main.jsp";
+			String url = "http://localhost:8080/B14/main.html";
 			response.sendRedirect(url);
 		}else{
 			response.setContentType("text/html;charset=UTF-8");

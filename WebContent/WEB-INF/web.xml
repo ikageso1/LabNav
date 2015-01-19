@@ -54,5 +54,12 @@
 	<url-pattern>ConfirmSessionServlet</url-pattern>
 </servlet-mapping>
 
-
+<servlet>
+	<servlet-name>RankingServlet</servlet-name>
+		<servlet-class>RankingServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>RankingServlet</servlet-name>
+	<url-pattern>RankingServlet</url-pattern>
+</servlet-mapping>
 </web-app>

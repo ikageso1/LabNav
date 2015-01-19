@@ -15,6 +15,7 @@ public class Laboratory{
 	public Laboratory(String name){
 		this.name = name;
 		calcAverage();
+		System.out.println(name + ":"+average);
 	}
 
 	public void addReview(String userId,int point,String reviewComment){
