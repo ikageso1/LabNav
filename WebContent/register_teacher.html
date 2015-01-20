@@ -5,7 +5,8 @@
     <meta name="generator" content="Bootply" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="shortcut icon" href="img/maguro.png">
+		<link rel="stylesheet" type="text/css" href="css/register.css">
+		<link rel="shortcut icon" href="img/maguro.png">
     <title>教員登録画面</title>
 
     <!-- Bootstrap -->
@@ -23,7 +24,6 @@
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
     
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
@@ -69,11 +69,29 @@
 
 <script type="text/javascript" src="js/register_teacher.js"></script>
 
-<form>
-	研究室を選択して下さい：<select name="研究室" id="lab"></select>
-</form>
-<input type="submit" value="登録">
-</div>
+<center>
+<h1>ラボナビ　最終登録画面</h1>
+必要情報を入力して、登録を完了して下さい。<br><br><br><br>
+</center>
+
+<div class="container">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8">
+			 <form id="register" method="post" action="RegisterAddtionalInfoServlet">
+				<table class="table table-striped table-bordered">
+					<tr>
+						<th><div class="form-group" id="labList"></div></th>
+					</tr>
+				</table>
+				</div>
+			</div>
+		</div>
+		<center>
+			<button id="register">登録完了</button>
+		</center>
+	</form>
+
+
 
 <div class="col-md-6 col-md-offset-5" id="CopyRight">
 	&copy; 2014 B14 Group. All Rights Reserved.

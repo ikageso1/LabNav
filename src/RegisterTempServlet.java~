@@ -19,7 +19,7 @@ public class RegisterTempServlet extends HttpServlet {
 		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String loginId = (String)request.getParameter("loginId");
+		String loginId = (String)request.getParameter("userId");
 		String password = (String)request.getParameter("password");
 		String email = (String)request.getParameter("mail");
 		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");

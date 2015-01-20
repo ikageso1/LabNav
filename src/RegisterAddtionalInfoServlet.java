@@ -19,13 +19,12 @@ public class RegisterAddtionalInfoServlet extends HttpServlet {
 		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String assignedLabStr = (String)request.getParameter("assignedLab");
-		if(assignedLabStr != null){
-			int assignedLab = Integer.parseInt(assignedLabStr);
+		String assignedLab = (String)request.getParameter("assignedLab");
+		if(assignedLab != null){
 			String userId = (String)request.getSession().getAttribute("userId");
 			LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 
-			System.out.println(userId +":"+String.valueOf(assignedLab));
+			System.out.println(userId +":"+assignedLab);
 			labnav.registerAdditionalInfo(userId,assignedLab);
 		}
 		//String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/registered.html";

@@ -55,4 +55,21 @@
 </servlet-mapping>
 
 
+<servlet>
+	<servlet-name>RankingServlet</servlet-name>
+		<servlet-class>RankingServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>RankingServlet</servlet-name>
+	<url-pattern>RankingServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>ConfirmLoginServlet</servlet-name>
+		<servlet-class>ConfirmLoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ConfirmLoginServlet</servlet-name>
+	<url-pattern>ConfirmLoginServlet</url-pattern>
+</servlet-mapping>
 </web-app>

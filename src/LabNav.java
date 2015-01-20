@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LabNav{
 	private ArrayList<User> students = new ArrayList<User>();
-	//private ArrayList<Laboratory> laboratoryies = new ArrayList<Laboratory>();
+	private ArrayList<Laboratory> laboratories = new ArrayList<Laboratory>();
 	private ArrayList<User> teachers = new ArrayList<User>();
 	public LabNav(){
 		try{
@@ -41,10 +41,10 @@ public class LabNav{
 			Statement statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-			// 取得
+			// User
 			ResultSet rs = statement.executeQuery("SELECT * FROM user;");
 			while(rs.next()){
-				//  行からデータを取得
+				// take out from colmun
 				String name = rs.getString("name");
 				String email = rs.getString("email");
 				String pass = rs.getString("password");	
@@ -55,6 +55,16 @@ public class LabNav{
 					students.add(new Student(name,email,pass));
 				}
 			}
+			rs.close();
+			// Laboratory
+			rs = statement.executeQuery("SELECT * FROM laboratory;");
+			while(rs.next()){
+				// take out from colmun
+				String name = rs.getString("name");
+				// make a laboraotry
+				laboratories.add(new Laboratory(name));
+			}
+
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			System.exit(-1);
@@ -70,7 +80,22 @@ public class LabNav{
 		}
 	}
 
-
+	public void calc_ranking(){
+		for(int i=0;i<laboratories.size()-1;i++){
+			System.out.println(laboratories.get(i).getName());
+			for(int j=0;j<laboratories.size()-1-i;j++){
+				if(laboratories.get(j).getAverage() < laboratories.get(j+1).getAverage()){
+					Laboratory temp = laboratories.get(j);
+					laboratories.set(j,laboratories.get(j+1));
+					laboratories.set(j+1,temp);	
+				}
+			}
+		}
+	}
+	public String getReviewRank(int rank){
+		calc_ranking();
+		return laboratories.get(rank-1).getName();
+	}
 	boolean confirm_usedname(String userId){
 		for(User student :students){
 			if(userId.equals(student.getName())){
@@ -144,7 +169,7 @@ public class LabNav{
 		return true;
 	}
 	
-		public boolean registerAdditionalInfo(String userId,int assignedLab){
+		public boolean registerAdditionalInfo(String userId,String assignedLab){
 		try{
 			// load
 			Class.forName("org.sqlite.JDBC");
@@ -163,11 +188,11 @@ public class LabNav{
 			// 取得
 			ResultSet rs = statement.executeQuery("SELECT * FROM assignedLab WHERE name ='" +userId+ "';");
 			if(rs.next()){
-				statement.executeUpdate("update assignedLab set lab = " + assignedLab
-						+ " where name = '"+userId+"';");
+				statement.executeUpdate("update assignedLab set lab = '" + assignedLab
+						+ "' where name = '"+userId+"';");
 			}else{
 				statement.executeUpdate("insert into assignedLab(name,lab)"
-				+ "values('"+userId+"',"+assignedLab+");");
+				+ "values('"+userId+"','"+assignedLab+"');");
 			}
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
@@ -203,10 +228,10 @@ public class LabNav{
 			String retStr = "";
 			for (int i = 0; i < digest.length; i++) {
 				int d = digest[i];
-				if (d < 0) {//byte型では128～255が負値になっているので補正
+				if (d < 0) {//byte型では128〜255が負値になっているので補正
 					d += 256;
 				}
-				if (d < 16) {//0～15は16進数で1けたになるので、2けたになるよう頭に0を追加
+				if (d < 16) {//0〜15は16進数で1けたになるので、2けたになるよう頭に0を追加
 					retStr += "0";
 				}
 				retStr += Integer.toString(d, 16);//ダイジェスト値の1バイトを16進数2けたで表示
@@ -269,7 +294,7 @@ public class LabNav{
 			final MimeMessage message = new MimeMessage(session);
 			try {
 				final Address addrFrom = new InternetAddress(
-						"kindailabnavi@gmail.com", "ラボナビ運営部",ENCODE );
+						"kindailabnavi@gmail.com", "ラボナビ運営部",ENCODE);
 				message.setFrom(addrFrom);
 				final Address addrTo = new InternetAddress(email);
 				message.addRecipient(Message.RecipientType.TO, addrTo);
@@ -359,6 +384,17 @@ public class LabNav{
 			return true;
 		}
 
+		public void submitReview(String userId,String labName,int review,String comment){
+			for(Laboratory l:laboratories){
+				if(l.getName().equals(labName)){
+					l.addReview(userId,review,comment);
+					l.calcAverage();
+					break;
+				}
+			}
+		}
+
+
 		public boolean login(String name,String password,HttpServletRequest request){
 			for(User user:students){
 				if(name.equals(user.getName())){
@@ -389,6 +425,9 @@ public class LabNav{
 
 		public static void main(String args[]){
 			LabNav test = new LabNav();
-			test.registerAdditionalInfo("ika",1);
+			test.submitReview("ika","moriyama",5,"hello");
+			test.submitReview("ika","tada",4,"hello");
+			test.submitReview("ika","tunoda",3,"hello");
+			System.out.println(test.getReviewRank(1));
 		}
 	}

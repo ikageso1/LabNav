@@ -1,3 +1,6 @@
+<%@ page language="java"
+contentType="text/html; charset=utf-8" %>
+<% if(request.getSession().getAttribute("userId") != null){ %>
 <!DOCTYPE html>
 <html lang="jp">
   <head>
@@ -104,4 +107,5 @@
     </div>
 </div>
 </div>
+<% } %>
 </html>
