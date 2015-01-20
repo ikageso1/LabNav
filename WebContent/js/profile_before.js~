@@ -1,4 +1,7 @@
 function addList(){
+	var labElement = document.getElementById("labList");
+	var isAssigned = document.getElementById("assigned").checked;
+	var lab2Element = document.getElementById("satisfied");
 	var labList = ["電子商取引研究室","ソフトウェア工学研究室","交通情報学研究室",
 			"自然言語処理研究室","知能情報基礎研究室",
 			"環境情報科学研究室",
@@ -54,6 +57,33 @@ function addList(){
 	}
 	hopestr3 += "</select>" + "</div>";
 	hope3Element.innerHTML = hopestr3;
+
+
+	if(isAssigned){
+		var str = "<label class='col-sm-2 control-label'></label>"
+			+ "<div class='col-sm-10'>"
+			+ "<select class='form-control' name='assignedLab'>";
+		for( i=0;i<labList.length;i++){
+			str += "<option value="+name[i]+">"+labList[i]+"</option>";
+		}
+		str += "</select>" + "</div>";
+		labElement.innerHTML = str;
+
+		var str2 = "<label class='col-sm-2 control-label'></label>"
+			+ "<div class='col-sm-10'>";
+		str2 += "<input type ='radio' name='satisfy' value='true'>Yes";
+		str2 += "<input type = 'radio' name='satisfy' value ='false'>No";
+		str2 += "</div>";
+		lab2Element.innerHTML = str2;
+
+	}
+	else{
+		var child = labElement.childNodes;
+		var i;
+		for(i=0;i<child.length;i++){
+			labElement.removeChild(child[i+1]);
+		}
+	}
 }
 
 window.addEventListener("load",function(){

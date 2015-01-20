@@ -82,7 +82,6 @@ public class LabNav{
 
 	public void calc_ranking(){
 		for(int i=0;i<laboratories.size()-1;i++){
-			System.out.println(laboratories.get(i).getName());
 			for(int j=0;j<laboratories.size()-1-i;j++){
 				if(laboratories.get(j).getAverage() < laboratories.get(j+1).getAverage()){
 					Laboratory temp = laboratories.get(j);
@@ -92,10 +91,49 @@ public class LabNav{
 			}
 		}
 	}
+
+	public void calc_pop_ranking(){
+		for(Laboratory l:laboratories){
+			l.calcPopular();
+		}
+		for(int i=0;i<laboratories.size()-1;i++){
+			for(int j=0;j<laboratories.size()-1-i;j++){
+				if(laboratories.get(j).getPopular() < laboratories.get(j+1).getPopular()){
+					Laboratory temp = laboratories.get(j);
+					laboratories.set(j,laboratories.get(j+1));
+					laboratories.set(j+1,temp);	
+				}
+			}
+		}
+	}
+
+	public void calc_satisfy_ranking(){
+	for(Laboratory l:laboratories){
+			l.calcSatisfy();
+		}
+		for(int i=0;i<laboratories.size()-1;i++){
+			for(int j=0;j<laboratories.size()-1-i;j++){
+				if(laboratories.get(j).getSatisfy() < laboratories.get(j+1).getSatisfy()){
+					Laboratory temp = laboratories.get(j);
+					laboratories.set(j,laboratories.get(j+1));
+					laboratories.set(j+1,temp);	
+				}
+			}
+		}
+	}
+	public String getPopRank(int rank){
+		calc_pop_ranking();
+		return laboratories.get(rank-1).getName();
+	}
 	public String getReviewRank(int rank){
 		calc_ranking();
 		return laboratories.get(rank-1).getName();
 	}
+	public String getSatisfyRank(int rank){
+		calc_satisfy_ranking();
+		return laboratories.get(rank-1).getName();
+	}
+
 	boolean confirm_usedname(String userId){
 		for(User student :students){
 			if(userId.equals(student.getName())){
@@ -168,10 +206,52 @@ public class LabNav{
 		}
 		return true;
 	}
-	
+		public void registerHopeLabInfo(String userId,String no1,String no2,String no3){
+			try{
+				// load
+				Class.forName("org.sqlite.JDBC");
+			}catch(ClassNotFoundException e){
+				System.err.println(e);
+				System.exit(-1);
+			}
+			Connection connection = null;
+
+			try{
+				connection = DriverManager.getConnection("jdbc:sqlite:webdb/B14.sqlite3");
+				Statement statement = connection.createStatement();
+				statement.setQueryTimeout(30);  // set timeout to 30 sec.
+
+				// 取得
+				ResultSet rs = statement.executeQuery("SELECT * FROM hopeLab WHERE name ='" +userId+ "';");
+				if(rs.next()){
+					statement.executeUpdate("update hopeLab set "
+							+ "lab1 = '" + no1 + "',"
+							+ "lab2 = '" + no2 + "',"
+							+ "lab3 = '" + no3 + "' "
+							+ "where name = '"+userId+"';");
+				}else{
+					statement.executeUpdate("insert into hopeLab(name,lab1,lab2,lab3)"
+							+ "values('"+userId+"','"+no1+"','"+ no2 + "','"+ no3 +"');");
+				}
+			}catch(SQLException e){
+				System.err.println(e.getMessage());
+				System.exit(-1);
+			}
+			finally{
+				try{
+					if(connection != null)
+						connection.close();
+				}catch(SQLException e){
+					System.err.println(e);
+					System.exit(-1);
+				}
+			}
+
+
+		}
 		public boolean registerAdditionalInfo(String userId,String assignedLab,String isSatisfy){
-		try{
-			// load
+			try{
+				// load
 			Class.forName("org.sqlite.JDBC");
 		}catch(ClassNotFoundException e){
 			System.err.println(e);

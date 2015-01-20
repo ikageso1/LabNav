@@ -1,0 +1,37 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.sql.*;
+
+public class ProfileBeforeServlet	extends HttpServlet {
+
+	static final long serialVersionUID = 1L;
+	/**
+	 *	  @brief
+	 *
+	 */ 
+	public void init() throws ServletException {
+		if(this.getServletContext().getAttribute("labnav") == null){
+			this.getServletContext().setAttribute("labnav",new LabNav());
+		}
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		String userId = (String)request.getSession().getAttribute("userId");
+    Boolean isTeacher = (Boolean)request.getSession().getAttribute("isTeacher");
+		
+		String hope1 = request.getParameter("hope1");
+		String hope2 = request.getParameter("hope2");
+		String hope3 = request.getParameter("hope3");
+
+		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
+		labnav.registerHopeLabInfo(userId,hope1,hope2,hope3);
+		String url = "http://localhost:8080/B14/main.html";
+		response.sendRedirect(url);
+	}
+}
+

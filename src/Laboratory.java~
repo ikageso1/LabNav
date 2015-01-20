@@ -80,7 +80,7 @@ public class Laboratory{
 			ResultSet rs = statement.executeQuery("SELECT * FROM assignedLab WHERE lab = '"+name+"';");
 			int sum=0;			// sum of the point
 			while(rs.next()){
-				if(rs.getString("isSatisfy").equals("true")){
+				if(rs.getString("isSatisfy").equeals("true")){
 					sum++;
 				}
 			}

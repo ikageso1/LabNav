@@ -80,4 +80,24 @@
 	<url-pattern>SubmitLabReviewServlet</url-pattern>
 </servlet-mapping>
 
+<servlet>
+	<servlet-name>ProfileServlet</servlet-name>
+	<servlet-class>ProfileServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ProfileServlet</servlet-name>
+	<url-pattern>ProfileServlet</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+	<servlet-name>ProfileBeforeServlet</servlet-name>
+	<servlet-class>ProfileBeforeServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ProfileBeforeServlet</servlet-name>
+	<url-pattern>ProfileBeforeServlet</url-pattern>
+</servlet-mapping>
+
+
 </web-app>

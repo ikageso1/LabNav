@@ -158,7 +158,7 @@ public class RankingServlet extends HttpServlet {
 		second = getLabInfomation(temp);
 		temp = labnav.getSatisfyRank(3);
 		third = getLabInfomation(temp);
-		
+
 		writer.append("\"sUrl1\":\"").append(first[2]).append("\",");
 		writer.append("\"sLabName1\":\"").append(first[0]).append("\",");
 		writer.append("\"sImageURL1\":\"").append(first[1]).append("\",");

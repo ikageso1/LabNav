@@ -28,7 +28,7 @@ public class RegisterAddtionalInfoServlet extends HttpServlet {
 		if(assignedLab != null){
 			String userId = (String)request.getSession().getAttribute("userId");
 			LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
-
+			labnav.registerHopeLabInfo(userId,hope1,hope2,hope3);
 			labnav.registerAdditionalInfo(userId,assignedLab,satisfy);
 		}
 		String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/registered.html";
