@@ -31,9 +31,9 @@ public class ProfileAfterServlet extends HttpServlet {
 			labnav.registerHopeLabInfo(userId,hope1,hope2,hope3);
 			labnav.registerAdditionalInfo(userId,assignedLab,satisfy);
 		}
-		//	String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
+		String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
 		// ローカルテスト用
-		 String url = "http://localhost:8080/B14/main.html";
+		// String url = "http://localhost:8080/B14/main.html";
     response.sendRedirect(url);
 	}
 }

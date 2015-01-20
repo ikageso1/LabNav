@@ -19,22 +19,12 @@ public class LogoutServlet extends HttpServlet {
 		}
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String loginId = request.getParameter("userId");
-		String password = request.getParameter("Password");
+		request.getSession().setAttribute("userId",null);
 
-		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
-
-		if(isOK){
-			// String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
-			// ローカルテスト用
-			String url = "http://localhost:8080/B14/main.html";
-			response.sendRedirect(url);
-		}else{
-			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter writer = response.getWriter();
-			writer.append("<p>ID or Password is wrong.</p>");
-			writer.flush();
-		}
+		// String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/index.html";
+		// ローカルテスト用
+		String url = "http://localhost:8080/B14/index.html";
+		response.sendRedirect(url);
 	}
 }
 

@@ -42,17 +42,17 @@ public class ProfileServlet	extends HttpServlet {
 			if(!isTeacher.booleanValue()){
 				ResultSet rs = statement.executeQuery("SELECT * FROM assignedLab WHERE name ='" +userId+ "';");
 				if(rs.next()){
-					// String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/profile_after.html";
-					String url = "./profile_after.html";
+					String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/profile_after.html";
+					//String url = "./profile_after.html";
 					response.sendRedirect(url);
 				}else{
-					// String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/profile_before.html";	
-					String url = "./profile_before.html";	
+					String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/profile_before.html";	
+					//String url = "./profile_before.html";	
 					response.sendRedirect(url);
 				}
 			}else{
-				// String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/profile_lab.html";	
-				String url = "./profile_lab.html";	
+				String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/profile_lab.html";	
+				//String url = "./profile_lab.html";	
 				response.sendRedirect(url);
 			}
 		}catch(SQLException e){

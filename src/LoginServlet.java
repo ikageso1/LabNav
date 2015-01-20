@@ -27,9 +27,9 @@ public class LoginServlet extends HttpServlet {
 		boolean isOK = labnav.login(loginId,password,request);
 
 		if(isOK){
-			// String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
+			String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
 			// ローカルテスト用
-			String url = "http://localhost:8080/B14/main.html";
+			//String url = "http://localhost:8080/B14/main.html";
 			response.sendRedirect(url);
 		}else{
 			response.setContentType("text/html;charset=UTF-8");

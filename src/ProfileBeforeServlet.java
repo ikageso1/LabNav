@@ -30,7 +30,7 @@ public class ProfileBeforeServlet	extends HttpServlet {
 
 		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 		labnav.registerHopeLabInfo(userId,hope1,hope2,hope3);
-		String url = "http://localhost:8080/B14/main.html";
+		String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
 		response.sendRedirect(url);
 	}
 }

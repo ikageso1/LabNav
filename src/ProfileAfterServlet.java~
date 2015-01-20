@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class RegisterAddtionalInfoServlet extends HttpServlet {
+public class ProfileAfterServlet extends HttpServlet {
 
 	static final long serialVersionUID = 1L;
 	/**
@@ -31,9 +31,9 @@ public class RegisterAddtionalInfoServlet extends HttpServlet {
 			labnav.registerHopeLabInfo(userId,hope1,hope2,hope3);
 			labnav.registerAdditionalInfo(userId,assignedLab,satisfy);
 		}
-		String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/registered.html";
+		//	String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
 		// ローカルテスト用
-		// String url = "http://localhost:8080/B14/registered.html";
+		 String url = "http://localhost:8080/B14/main.html";
     response.sendRedirect(url);
 	}
 }

@@ -20,7 +20,7 @@ public class ProfileBeforeServlet	extends HttpServlet {
 			this.getServletContext().setAttribute("labnav",new LabNav());
 		}
 	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String userId = (String)request.getSession().getAttribute("userId");
     Boolean isTeacher = (Boolean)request.getSession().getAttribute("isTeacher");
 		

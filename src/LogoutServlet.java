@@ -21,9 +21,9 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		request.getSession().setAttribute("userId",null);
 
-		// String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/index.html";
+		String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/index.html";
 		// ローカルテスト用
-		String url = "http://localhost:8080/B14/index.html";
+		// String url = "http://localhost:8080/B14/index.html";
 		response.sendRedirect(url);
 	}
 }
