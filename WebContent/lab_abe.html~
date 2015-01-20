@@ -22,8 +22,9 @@
     <![endif]-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-		   <script type="text/javascript" src="js/loginConfirm.js"></script> 
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script type="text/javascript" src="js/"
+		<script type="text/javascript" src="js/loginConfirm.js"></script> 
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/angular.min.js"></script>
@@ -88,11 +89,11 @@
 					 <hr>
 					 <p> 評価：
 				<form action="SubmitLabReviewServlet" method="post">
-					<input type="radio" name="rate" ><label for="abe:1">1</label>
-		   		<input type="radio" name="rate" ><label for="abe:2">2</label>
-		   		<input type="radio" name="rate" ><label for="abe:3">3</label>
-		   		<input type="radio" name="rate" ><label for="abe:4">4</label>
-		   		<input type="radio" name="rate" ><label for="abe:5">5</label>
+					<input type="radio" name="rate" value="abe:1"><label for="abe:1">1</label>
+		   		<input type="radio" name="rate" value="abe:2"><label for="abe:2">2</label>
+		   		<input type="radio" name="rate" value="abe:3"><label for="abe:3">3</label>
+		   		<input type="radio" name="rate" value="abe:4"><label for="abe:4">4</label>
+		   		<input type="radio" name="rate" value="abe:5"><label for="abe:5">5</label>
 		   </p>
 		   <p>レビューコメント</p>
 <textarea name="intro" rows="10" cols="50"></textarea>
