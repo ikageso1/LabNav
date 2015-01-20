@@ -87,16 +87,18 @@
 		       <h3>E-mail: habe@info.kindai.ac.jp</h3>
 		    <hr>
 		   <p> 評価：
-           		<input type="radio" name="rate" ><label for="1">1</label>
-		   		<input type="radio" name="rate" ><label for="2">2</label>
-		   		<input type="radio" name="rate" ><label for="3">3</label>
-		   		<input type="radio" name="rate" ><label for="4">4</label>
-		   		<input type="radio" name="rate" ><label for="5">5</label>
+		     <form action="SubmitLabReviewServlet" method="POST">
+           		<input type="radio" name="rate" ><label for="habe:1">1</label>
+		   		<input type="radio" name="rate" ><label for="habe:2">2</label>
+		   		<input type="radio" name="rate" ><label for="habe:3">3</label>
+		   		<input type="radio" name="rate" ><label for="habe:4">4</label>
+		   		<input type="radio" name="rate" ><label for="habe:5">5</label>
 		   </p>
 		   <p>レビューコメント</p>
 <textarea name="intro" rows="10" cols="50"></textarea>
 
 		  <button type="submit">投稿</button>
+		  </form>
 		   <hr>
          
         </div>

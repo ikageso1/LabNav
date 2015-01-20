@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="img/maguro.png">
-    <title>濵砂研</title>
+    <title>半田研</title>
 
     <!-- Bootstrap -->
     <link  type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/loginConfirm.js"></script> 
+    
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
     
@@ -53,7 +53,6 @@
           </button>
           <a class="navbar-brand" href="main.html">
           <img alt="" src="img/Brand-Image.png" class="img-Brand"></a>
-          
         </div>
         
         <div collapse="isCollapsed" class="navbar-collapse">
@@ -70,36 +69,34 @@
 
     <div class="col-md-12">
         <div class="center-block text-center">
-            <h1>知能情報基礎研究室</h1>
-            <p class="lead">濵砂　幸裕　講師</p>
+            <h1>計算知能研究室</h1>
+            <p class="lead">半田　久志　准教授</p>
         </div>
         <div class="container">
             <div class="menu row">
                 <div class="product col-sm-6">
-                  <a href="#"><img class="img-responsive" src="https://www.kindai.ac.jp/data/images/professor/479.jpg" align="left"></a>
+                  <a href="#"><img class="img-responsive" src="https://www.kindai.ac.jp/data/images/professor/456.jpg" align="left"></a>
 		  <p>平均評価
 		  <hr>
                     <h3>紹介文</h3>
-                    <p>知能情報基礎研究室では、データ解析手法の一つであるクラスタリングの基礎理論及び応用に取り組み、大規模・複雑なデータ
-                    を柔軟に処理する新たな方法論の構築に取り組んでいます。</p>
+                    <p>本研究室では、学習や進化のメカニズムを用いて工学的設計・最適化を行います。学習や進化の
+                    アルゴリズム自身の研究も行っています。</p>
                     <hr>
-                  	<h3>部屋: </h3>
+                  	<h3>部屋: N-310</h3>
                     <hr>
-		       <h3>E-mail: yhama@info.kindai.ac.jp</h3>
+		       <h3>E-mail: </h3>
 		    <hr>
 		   <p> 評価：
-		     <form action="SubmitLavReviewServlet" method="POST">
-           		<input type="radio" name="rate" ><label for="hamasuna:1">1</label>
-		   		<input type="radio" name="rate" ><label for="hamasuna:2">2</label>
-		   		<input type="radio" name="rate" ><label for="hamasuna:3">3</label>
-		   		<input type="radio" name="rate" ><label for="hamasuna:4">4</label>
-		   		<input type="radio" name="rate" ><label for="hamasuna:5">5</label>
+           		<input type="radio" name="rate" ><label for="1">1</label>
+		   		<input type="radio" name="rate" ><label for="2">2</label>
+		   		<input type="radio" name="rate" ><label for="3">3</label>
+		   		<input type="radio" name="rate" ><label for="4">4</label>
+		   		<input type="radio" name="rate" ><label for="5">5</label>
 		   </p>
 		   <p>レビューコメント</p>
 <textarea name="intro" rows="10" cols="50"></textarea>
 
-		  <button type="submit">投稿</button>
-		  </form>
+		  <button type="submit" >投稿</button>
 		   <hr>
          
         </div>
