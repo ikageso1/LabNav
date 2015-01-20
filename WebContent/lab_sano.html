@@ -86,17 +86,17 @@
                     <hr>
 		       <h3>E-mail: </h3>
 		    <hr>
-		   <p> 評価：
-           		<input type="radio" name="rate" ><label for="1">1</label>
-		   		<input type="radio" name="rate" ><label for="2">2</label>
-		   		<input type="radio" name="rate" ><label for="3">3</label>
-		   		<input type="radio" name="rate" ><label for="4">4</label>
-		   		<input type="radio" name="rate" ><label for="5">5</label>
+		   <p> 評価： <form action="SubmitLabReviewServlet" method="POST">
+           		<input type="radio" name="rate" value="sano:1" ><label for="1">1</label>
+		   		<input type="radio" name="rate" value="sano:2"><label for="2">2</label>
+		   		<input type="radio" name="rate" value="sano:3"><label for="3">3</label>
+		   		<input type="radio" name="rate" value="sano:4"><label for="4">4</label>
+		   		<input type="radio" name="rate" value="sano:5"><label for="5">5</label>
 		   </p>
 		   <p>レビューコメント</p>
 <textarea name="intro" rows="10" cols="50"></textarea>
 
-		  <button type="submit">投稿</button>
+		  <button type="submit">投稿</button></form>
 		   <hr>
          
         </div>
