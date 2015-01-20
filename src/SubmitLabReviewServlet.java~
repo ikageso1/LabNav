@@ -20,6 +20,7 @@ public class SubmitLabReviewServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String str = request.getParameter("rate");
+		System.out.println(str);
 		String[] rate = str.split(":");
 		String comment = request.getParameter("intro");
 		String userId = (String)request.getSession().getAttribute("userId");

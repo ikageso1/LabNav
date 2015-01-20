@@ -31,6 +31,7 @@ public class Laboratory{
 			connection = DriverManager.getConnection("jdbc:sqlite:webdb/B14.sqlite3");
 			Statement statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // set timeout to 30 sec.
+			System.out.println(name);
 			// get data
 			ResultSet rs = statement.executeQuery("SELECT * FROM lab_review"
 					+ " where userId = '"+userId+"' and labName = '"+name+ "';");

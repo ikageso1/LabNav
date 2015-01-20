@@ -25,7 +25,6 @@ public class SubmitLabReviewServlet extends HttpServlet {
 		String comment = request.getParameter("intro");
 		String userId = (String)request.getSession().getAttribute("userId");
 		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
-		System.out.println(rate[0] + ":" + rate[1]);
 		labnav.submitReview(userId,rate[0],Integer.parseInt(rate[1]),comment);
 	}
 }
