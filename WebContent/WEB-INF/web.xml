@@ -108,4 +108,14 @@
 	<url-pattern>LogoutServlet</url-pattern>
 </servlet-mapping>
 
+<servlet>
+	<servlet-name>ProfileAfterServlet</servlet-name>
+	<servlet-class>ProfileAfterServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ProfileAfterServlet</servlet-name>
+	<url-pattern>ProfileAfterServlet</url-pattern>
+</servlet-mapping>
+
+
 </web-app>

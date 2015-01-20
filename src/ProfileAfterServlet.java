@@ -1,0 +1,40 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ProfileAfterServlet extends HttpServlet {
+
+	static final long serialVersionUID = 1L;
+	/**
+	 * @brief 初期化処理を行う.
+	 * labnavが未格納の場合は、入れる
+	 */ 
+	public void init() throws ServletException {
+		if(this.getServletContext().getAttribute("labnav") == null){
+			this.getServletContext().setAttribute("labnav",new LabNav());
+		}
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		String assignedLab = (String)request.getParameter("assignedLab");
+		String hope1 = (String)request.getParameter("hope1");
+		String hope2 = (String)request.getParameter("hope2");
+		String hope3 = (String)request.getParameter("hope3");
+		String satisfy = (String)request.getParameter("satisfy");
+
+		if(assignedLab != null){
+			String userId = (String)request.getSession().getAttribute("userId");
+			LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
+			labnav.registerHopeLabInfo(userId,hope1,hope2,hope3);
+			labnav.registerAdditionalInfo(userId,assignedLab,satisfy);
+		}
+		//	String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
+		// ローカルテスト用
+		 String url = "http://localhost:8080/B14/main.html";
+    response.sendRedirect(url);
+	}
+}
+
