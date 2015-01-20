@@ -10,9 +10,8 @@
     <!-- Bootstrap -->
     <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="css/bootstrap.css" rel="stylesheet">
-    <link type="text/css" href="css/main.css" rel="stylesheet">
     <link type="text/css" href="css/navBarStyle.css" rel="stylesheet">
-
+    <link type="text/css" href="css/jRating.jquery.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,7 +26,7 @@
     <script type="text/javascript" src="js/loginConfirm.js"></script> 
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
-    
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" >
       var app = angular.module('PageNavi',['ui.bootstrap']);
       app.controller('MainCtrl',
@@ -68,12 +67,12 @@
     </nav> 
 
 <div class="row">
-
  <div class="col-xs-6 col-md-3">
+
   	<a href="lab_moriyama.html" class="thumbnail">電子商取引研究室
-		<img src="https://www.kindai.ac.jp/data/images/professor/242.jpg" alt="">
-		<div class="rating" ><p>平均評価を表示</p></div>
+		<img src="https://www.kindai.ac.jp/data/images/professor/242.jpg" alt=""><div class="rating" ><p>平均評価を表示</p></div>
 	</a>
+	
  </div>
 
  <div class="col-xs-6 col-md-3">
@@ -226,6 +225,6 @@
 <div class="col-md-6 col-md-offset-5" id="CopyRight">
 	&copy; 2014 B14 Group. All Rights Reserved.
 </div>
+
 </div>
-<% } %>
 </html>

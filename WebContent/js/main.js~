@@ -1,0 +1,11 @@
+ $(document).ready(function(){  
+         // Very simple call  
+         $('.jRating').jRating();  
+  
+         // Call with options - exemple  
+         $('.jRating').jRating({  
+           step : false, // no step  
+           length : 10, // show 10 stars at the init  
+           type : 'small' // show small stars instead of big default stars  
+         });  
+      });  

@@ -1,0 +1,1 @@
+$('#rate').raty({ score: 3 });
