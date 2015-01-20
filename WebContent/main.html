@@ -1,3 +1,9 @@
+<<<<<<< HEAD:WebContent/main.html
+=======
+<%@ page language="java"
+contentType="text/html; charset=utf-8" %>
+<% if(request.getSession().setAttribute("userId",name) != null){ %>
+>>>>>>> FETCH_HEAD:WebContent/main.jsp~
 <!DOCTYPE html>
 <html lang="jp">
   <head>
@@ -51,7 +57,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="main.html">
+          <a class="navbar-brand" href="main.jsp">
           <img alt="" src="img/Brand-Image.png" class="img-Brand"></a>
         </div>
         <div collapse="isCollapsed" class="navbar-collapse">
@@ -227,4 +233,5 @@
 	&copy; 2014 B14 Group. All Rights Reserved.
 </div>
 </div>
+<% } %>
 </html>

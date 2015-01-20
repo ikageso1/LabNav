@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var xmlHttpRequest1;
 var xmlHttpRequest2;
 
@@ -31,10 +32,27 @@ function receive2() {
       rateFirstElement3.innerHTML = "<a href='"+ response.url3+"'>" + response.labName3 + "</a>";
 			var firstImageElement3 = document.getElementById("third_img");
 			firstImageElement3.innerHTML = "<img alt='' src='"+ response.imageURL3+"'/>";
+=======
+var xmlHttpRequest;
+
+function receive() {
+  if(xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+      //console.log(xmlHttpRequest.responseText);   
+      var response = eval("(" + xmlHttpRequest.responseText + ")");
+    
+   
+      var rateFirstElement = document.getElementById("rate_first");
+      rateFirstElement.innerHTML = "<a href='"+ response.url+"'>" + response.labName + "</a>";
+			var firstImageElement = document.getElementById("first_img");
+			alert(response.labName);
+			firstImageElement.innerHTML = "<img alt='' src='"+ response.imageURL+"'/>";
+
+>>>>>>> FETCH_HEAD
   }
 }
 
 window.addEventListener("load", function() {
+<<<<<<< HEAD
 	var url = "ConfirmLoginServlet";
 	xmlHttpRequest1 = new XMLHttpRequest();
 	xmlHttpRequest1.onreadystatechange = receive1;
@@ -46,4 +64,11 @@ window.addEventListener("load", function() {
 	xmlHttpRequest2.onreadystatechange = receive2;
 	xmlHttpRequest2.open("GET", url, true);
 	xmlHttpRequest2.send(null);
+=======
+	var url = "RankingServlet";
+	xmlHttpRequest = new XMLHttpRequest();
+	xmlHttpRequest.onreadystatechange = receive;
+	xmlHttpRequest.open("GET", url, true);
+	xmlHttpRequest.send(null);
+>>>>>>> FETCH_HEAD
 }, false);

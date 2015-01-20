@@ -27,7 +27,11 @@ public class SubmitLabReviewServlet extends HttpServlet {
 
 		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 
+<<<<<<< HEAD
 		labnav.submitReview(userId,labName,Integer.parseInt(review),comment);
+
+=======
+		boolean isOK = labnav.submitReview(userId,labName,review,comment);
 
 		if(isOK){
 			// String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
@@ -40,6 +44,7 @@ public class SubmitLabReviewServlet extends HttpServlet {
 			writer.append("<p>ID or Password is wrong.</p>");
 			writer.flush();
 		}
+>>>>>>> FETCH_HEAD
 	}
 }
 

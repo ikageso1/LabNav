@@ -23,10 +23,16 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+<<<<<<< HEAD
 		<script type="text/javascript" src="js/loginConfirm.js"></script> 
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
      <script type="text/javascript" src="js/bootstrap.js"></script>
 		 <script type="text/javascript" src="js/desired_lab_rank.js"></script>
+=======
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="js/bootstrap.js"></script>
+    
+>>>>>>> FETCH_HEAD
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
     
@@ -245,13 +251,23 @@
 		<div class="text-center">
 			<img alt=""  src="img/no-1.png" width="90px">
 			<span id="rate_first">
+<<<<<<< HEAD
+=======
+				<!-- <a href="lab_tada.html">電子商取引研究室</a> -->
+>>>>>>> FETCH_HEAD
 			</span>
 		</div>
 	</th>
 </tr>
 <tr>
 	<td>
+<<<<<<< HEAD
 		<div id="first_img" class="text-center rate_first_img">
+=======
+		
+		<div id="first_img" class="text-center rate_first_img">
+			<!-- <img alt="" src="https://www.kindai.ac.jp/data/images/professor/242.jpg"/> -->
+>>>>>>> FETCH_HEAD
 		</div>
 		</a>
 	
@@ -263,6 +279,10 @@
 	<div class="text-center">
 		<img alt=""  src="img/no-2.png" width="70px">
 		<span id="rate_second">
+<<<<<<< HEAD
+=======
+			<a href="lab_tada.html">交通情報学研究室</a>
+>>>>>>> FETCH_HEAD
 		</span>
 	</div>
 	</th>
@@ -270,8 +290,12 @@
 <tr>
 	<td>
 		
+<<<<<<< HEAD
 		<div id="second_img" class="text-center rate_second_img">
 		</div>
+=======
+		<div class="text-center rate_second_img"><img alt="" src="https://www.kindai.ac.jp/data/images/professor/468.jpg"/></div>
+>>>>>>> FETCH_HEAD
 		</a>
 	
 	</td>
@@ -282,6 +306,10 @@
 	<div class="text-center">
 		<img alt=""  src="img/no-3.png" width="65px">
 		<span id="rate_third">
+<<<<<<< HEAD
+=======
+			<a href="lab_tada.html">交通情報学研究室</a>
+>>>>>>> FETCH_HEAD
 		</span>
 	</div>
 	</th>
@@ -289,8 +317,12 @@
 <tr>
 	<td>
 		
+<<<<<<< HEAD
 		<div id="third_img" class="text-center rate_third_img">
 		</div>
+=======
+		<div class="text-center rate_third_img"><img alt="" src="https://www.kindai.ac.jp/data/images/professor/468.jpg"/></div>
+>>>>>>> FETCH_HEAD
 		</a>
 	
 	</td>
@@ -311,4 +343,8 @@
 <div class="col-md-6 col-md-offset-5" id="CopyRight">
 	&copy; 2014 B14 Group. All Rights Reserved.
 </div>
+<<<<<<< HEAD
+=======
+	
+>>>>>>> FETCH_HEAD
 </html>

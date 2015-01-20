@@ -32,6 +32,7 @@ public class Laboratory{
 			Statement statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // set timeout to 30 sec.
 			// get data
+<<<<<<< HEAD
 			ResultSet rs = statement.executeQuery("SELECT * FROM lab_review"
 					+ " where userId = '"+userId+"' and labName = '"+name+ "';");
 			if(rs.next()){
@@ -42,6 +43,18 @@ public class Laboratory{
 			}else{
 				statement.executeUpdate("insert into lab_review(userId,labName,point,reviewComment)"
 						+ "values('"+userId+"','"+name+"',"+point+",'"+reviewComment+"');");
+=======
+			ResultSet rs = statement.executeQuery("SELECT * FROM "+name+"_lab_review"
+					+ " where userId = '"+userId+"';");
+			if(rs.next()){
+				statement.executeUpdate("update "+name+"_lab_review set"
+						+ " point = " + point + ","
+						+ " reviewComment = '" + reviewComment + "'"
+						+ " where userId = '"+userId+"';");
+			}else{
+				statement.executeUpdate("insert into "+name+"_lab_review(userId,point,reviewComment)"
+						+ "values('"+userId+"',"+point+",'"+reviewComment+"');");
+>>>>>>> FETCH_HEAD
 			}
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
@@ -72,7 +85,11 @@ public class Laboratory{
 			Statement statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // set timeout to 30 sec.
 			// get data
+<<<<<<< HEAD
 			ResultSet rs = statement.executeQuery("SELECT point FROM lab_review WHERE labName = '"+name+"';");
+=======
+			ResultSet rs = statement.executeQuery("SELECT point FROM "+name+"_lab_review;");
+>>>>>>> FETCH_HEAD
 			int sum=0;	// sum of the point
 			int num=0;	// number of the point
 			while(rs.next()){
