@@ -19,16 +19,13 @@ public class SubmitLabReviewServlet extends HttpServlet {
 		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String labName = request.getParameter("labName");
-		String review = request.getParameter("review");
-		String comment = request.getParameter("comment");
-		
+		String str = request.getParameter("rate");
+		String[] rate = str.split(":");
+		String comment = request.getParameter("intro");
 		String userId = (String)request.getSession().getAttribute("userId");
-
 		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
-
-		labnav.submitReview(userId,labName,Integer.parseInt(review),comment);
-
+		System.out.println(rate[0] + ":" + rate[1]);
+		labnav.submitReview(userId,rate[0],Integer.parseInt(rate[1]),comment);
 	}
 }
 

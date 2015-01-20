@@ -87,7 +87,7 @@
 		       <h3>E-mail: koji@info.kindai.ac.jp</h3>
 					 <hr>
 					 <p> 評価：
-				<form>
+				<form action="SubmitLabReviewServlet" method="post">
 					<input type="radio" name="rate" ><label for="abe:1">1</label>
 		   		<input type="radio" name="rate" ><label for="abe:2">2</label>
 		   		<input type="radio" name="rate" ><label for="abe:3">3</label>
