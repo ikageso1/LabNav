@@ -213,15 +213,6 @@ public class LabNav{
 		}
 		public void getLaboratory(int laboratory_id){
 		}
-		/*
-			 =======
-			 >>>>>>> FETCH_HEAD
-			 public static void main(String args[]){
-			 LabNav labnav = new LabNav();
-			 String email = "ikageso.201@gmail.com";
-			 labnav.createTemporaryUser("天満",email,"1234");
-			 <<<<<<< HEAD
-			 }*/
 
 		// 変換
 		private String convertDigest(byte[] digest){	

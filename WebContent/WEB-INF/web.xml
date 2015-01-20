@@ -53,11 +53,6 @@
 	<servlet-name>ConfirmSessionServlet</servlet-name>
 	<url-pattern>ConfirmSessionServlet</url-pattern>
 </servlet-mapping>
-
-<<<<<<< HEAD
-
-=======
->>>>>>> FETCH_HEAD
 <servlet>
 	<servlet-name>RankingServlet</servlet-name>
 		<servlet-class>RankingServlet</servlet-class>
@@ -66,7 +61,6 @@
 	<servlet-name>RankingServlet</servlet-name>
 	<url-pattern>RankingServlet</url-pattern>
 </servlet-mapping>
-<<<<<<< HEAD
 
 <servlet>
 	<servlet-name>ConfirmLoginServlet</servlet-name>
@@ -76,6 +70,4 @@
 	<servlet-name>ConfirmLoginServlet</servlet-name>
 	<url-pattern>ConfirmLoginServlet</url-pattern>
 </servlet-mapping>
-=======
->>>>>>> FETCH_HEAD
 </web-app>
