@@ -169,7 +169,7 @@ public class LabNav{
 		return true;
 	}
 	
-		public boolean registerAdditionalInfo(String userId,String assignedLab){
+		public boolean registerAdditionalInfo(String userId,String assignedLab,String isSatisfy){
 		try{
 			// load
 			Class.forName("org.sqlite.JDBC");
@@ -188,11 +188,11 @@ public class LabNav{
 			// 取得
 			ResultSet rs = statement.executeQuery("SELECT * FROM assignedLab WHERE name ='" +userId+ "';");
 			if(rs.next()){
-				statement.executeUpdate("update assignedLab set lab = '" + assignedLab
-						+ "' where name = '"+userId+"';");
+				statement.executeUpdate("update assignedLab set lab = '" + assignedLab 
+						+ "',isSatisfy = '"+isSatisfy+"' where name = '"+userId+"';");
 			}else{
-				statement.executeUpdate("insert into assignedLab(name,lab)"
-				+ "values('"+userId+"','"+assignedLab+"');");
+				statement.executeUpdate("insert into assignedLab(name,lab,isSatisfy)"
+				+ "values('"+userId+"','"+assignedLab+"','"+ isSatisfy+ "');");
 			}
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
@@ -283,6 +283,7 @@ public class LabNav{
 
 			// メッセージ内容の設定。
 			final MimeMessage message = new MimeMessage(session);
+
 			try {
 				final Address addrFrom = new InternetAddress(
 						"kindailabnavi@gmail.com", "ラボナビ運営部",ENCODE);
@@ -294,15 +295,17 @@ public class LabNav{
 				message.setSubject("ラボナビのご登録ありがとうございます",ENCODE );
 
 				// メール本文。setTextを用いると 自動的に[text/plain]となる。
-				String text = "ラボナビを登録していただき有り難う御座います。\n";
-				text += "お手数ですが、登録を完了していただく為に、以下のURLにアクセスして下さい。\n";
+				String text = "Welcome to  LabNav!!!";
+				text += "We require that users confirm their email addresses before using some account features.";
+				text += "Please confirm your account by following the link below:";
 				text += "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/RegisterServlet?key=" + key;
-				message.setContent(text,"text/plain; charset="+ENCODE);
-
+				
+				message.setContent(text,"text/html;charset=\""+ENCODE+"\"");
+				
 				// 仮対策: 開始
 				// setTextを呼び出した後に、ヘッダーを 7bitへと上書きします。
 				// これは、一部のケータイメールが quoted-printable を処理できないことへの対策となります。
-				message.setHeader("Content-Transfer-Encoding", "7bit");
+				message.setHeader("Content-Transfer-Encoding", "8bit");
 				// 仮対策: 終了
 
 				// その他の付加情報。

@@ -26,14 +26,14 @@ public class RegisterServlet extends HttpServlet {
 			String url;
 			Boolean isTeacher = (Boolean)request.getSession().getAttribute("isTeacher");
 			if(isTeacher.booleanValue()){
-				// url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/register_teacher.html";
+				url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/register_teacher.html";
 				// ローカルテスト用
-				url = "http://localhost:8080/B14/register_teacher.html";
+				// url = "http://localhost:8080/B14/register_teacher.html";
 			}
 			else{
-				//url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/register_student.html";
+				url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/register_student.html";
 			  // ローカルテスト用
-				 url = "http://localhost:8080/B14/register_student.html";
+				// url = "http://localhost:8080/B14/register_student.html";
 			}
 			response.sendRedirect(url);
 		}

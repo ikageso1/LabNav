@@ -12,7 +12,7 @@ public class User{
 	protected String password;
 	protected String key;
 	protected String time;
-
+	protected boolean isTeacher;
 	/**
 	 * @brief コンストラクタ
 	 */ 
@@ -62,6 +62,7 @@ public class User{
 		return true;
 	}
 	public boolean create(boolean isTeacher,String key){
+		this.isTeacher = isTeacher;
 		try{
 			// load
 			Class.forName("org.sqlite.JDBC");

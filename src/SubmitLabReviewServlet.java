@@ -26,6 +26,9 @@ public class SubmitLabReviewServlet extends HttpServlet {
 		String userId = (String)request.getSession().getAttribute("userId");
 		LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 		labnav.submitReview(userId,rate[0],Integer.parseInt(rate[1]),comment);
+		
+		String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/main.html";
+		response.sendRedirect(url);
 	}
 }
 

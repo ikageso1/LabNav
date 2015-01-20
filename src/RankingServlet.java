@@ -40,7 +40,7 @@ public class RankingServlet extends HttpServlet {
 				labName[i] = "交通情報学研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/468.jpg";
 				labURL[i] = "lab_tada.html";
-			}else if(temp.equals("tunoda")){
+			}else if(temp.equals("tsunoda")){
 				labName[i] = "ソフトウェア研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/469.jpg";
 				labURL[i] = "lab_tsunoda.html";
@@ -48,7 +48,7 @@ public class RankingServlet extends HttpServlet {
 				labName[i] = "数理情報工学研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/439.jpg";
 				labURL[i] = "lab_tagawa.html";
-			}else if(temp.equals("mizobuti")){
+			}else if(temp.equals("mizobuchi")){
 				labName[i] = "自然言語処理研究室";
 				imageURL[i] ="https://www.kindai.ac.jp/data/images/professor/458.jpg";
 				labURL[i] = "lab_mizobuchi.html";
@@ -60,7 +60,7 @@ public class RankingServlet extends HttpServlet {
 				labName[i] = "環境情報科学研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/868.jpg";
 				labURL[i] = "lab_sano.html";
-			}else if(temp.equals("higuti")){
+			}else if(temp.equals("higuchi")){
 				labName[i] = "分散ソフトウェア研究室";
 				imageURL[i] ="https://www.kindai.ac.jp/data/images/professor/443.jpg";
 				labURL[i] = "lab_higuchi.html";
@@ -72,7 +72,7 @@ public class RankingServlet extends HttpServlet {
 				labName[i] = "分散アルゴリズム研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/476.jpg";
 				labURL[i] = "lab_moriya.html";
-			}else if(temp.equals("isimizu")){
+			}else if(temp.equals("ishimizu")){
 				labName[i] = "情報論理工学研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/461.jpg";	
 				labURL[i] = "lab_ishimizu.html";
@@ -80,11 +80,11 @@ public class RankingServlet extends HttpServlet {
 				labName[i] = "音声言語研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/449.jpg";
 				labURL[i] = "lab_yamamoto.html";
-			}else if(temp.equals("iguti")){
+			}else if(temp.equals("iguchi")){
 				labName[i] = "ネットワーク研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/238.jpg";
 				labURL[i] = "lab_iguchi.html";
-			}else if(temp.equals("takata")){
+			}else if(temp.equals("takada")){
 				labName[i] = "マルチエージェント研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/1169.jpg";
 				labURL[i] = "lab_takata.html";
@@ -103,17 +103,19 @@ public class RankingServlet extends HttpServlet {
 			}else if(temp.equals("hironaga")){
 				labName[i] = "画像処理研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/480.jpg";
-			}else if(temp.equals("ohosi")){
+			}else if(temp.equals("oboshi")){
 				labName[i] = "医療情報研究室";
 				imageURL[i] = "http://profsci.kudos.kindai.ac.jp/moodle/file.php/2/moddata/data/1/18/162/%E6%83%85%E5%A0%B1%E5%AD%A6%E7%A7%91%E5%A4%A7%E6%98%9F_fmt.jpeg";
 				labURL[i] = "lab_oboshi.jsp";
-			}else if(temp.equals("taniguti")){
+			}else if(temp.equals("taniguchi")){
 				labName[i] = "知的通信網研究室";
 				imageURL[i] = "https://www.kindai.ac.jp/data/images/professor/1230.jpg";
 				labURL[i] = "lab_taniguchi.html";
 			}
 		}
-		System.out.println(labName[0]);
+		for(int i=0;i<3;i++){
+			System.out.println(labName[i]);
+		}
 		response.setContentType("application/json;charset=utf-8");
 		PrintWriter writer = response.getWriter();
 		writer.append('{');

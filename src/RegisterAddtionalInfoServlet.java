@@ -20,16 +20,20 @@ public class RegisterAddtionalInfoServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String assignedLab = (String)request.getParameter("assignedLab");
+		String hope1 = (String)request.getParameter("hope1");
+		String hope2 = (String)request.getParameter("hope2");
+		String hope3 = (String)request.getParameter("hope3");
+		String satisfy = (String)request.getParameter("satisfy");
+
 		if(assignedLab != null){
 			String userId = (String)request.getSession().getAttribute("userId");
 			LabNav labnav = (LabNav)this.getServletContext().getAttribute("labnav");
 
-			System.out.println(userId +":"+assignedLab);
-			labnav.registerAdditionalInfo(userId,assignedLab);
+			labnav.registerAdditionalInfo(userId,assignedLab,satisfy);
 		}
-		//String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/registered.html";
+		String url = "http://ecl.info.kindai.ac.jp/14/isp2/warup/servlet/B14/registered.html";
 		// ローカルテスト用
-		 String url = "http://localhost:8080/B14/registered.html";
+		// String url = "http://localhost:8080/B14/registered.html";
     response.sendRedirect(url);
 	}
 }

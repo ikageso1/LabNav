@@ -2,17 +2,17 @@
 <html lang="jp">
   <head>
     <meta content="text/html" charset="utf-8">
-    <meta name="generator" content="Bootply">
+    <meta name="generator" content="Bootply" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="img/maguro.png">
-    <title>ラボナビ プロフィール</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/register.css">
+		<link rel="shortcut icon" href="img/maguro.png">
+    <title>プロフィール画面</title>
 
     <!-- Bootstrap -->
-    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
-    <link type="text/css" href="css/bootstrap.css" rel="stylesheet">
+    <link  type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
      <link type="text/css" href="css/main.css" rel="stylesheet">
-     <link type="text/css" href="css/navBarStyle.css" rel="stylesheet">
+    <link type="text/css" href="css/navBarStyle.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,7 +24,6 @@
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
     
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
@@ -68,86 +67,42 @@
       
     </nav> 
 
-<div class="hope">
-<p>配属希望
-      <select name="hope1">
-	<option value="---">第一希望</option>
-	<option value="1">田川研</option>
-	<option value="2">山本研</option>
-	<option value="3">井口研</option>
-	<option value="4">大星研</option>
-	<option value="5">笹野研</option>
-	<option value="6">佐野研</option>
-	<option value="7">樋口研</option>
-	<option value="8">高田研</option>
-	<option value="9">森山研</option>
-	<option value="10">阿部研</option>
-	<option value="11">加藤研</option>
-	<option value="12">溝渕研</option>
-	<option value="13">半田研</option>
-	<option value="14">守屋研</option>
-	<option value="15">石水研</option>
-	<option value="16">波部研</option>
-	<option value="17">角田研</option>
-	<option value="18">多田研</option>
-	<option value="19">広永研</option>
-	<option value="20">濱砂研</option>
-	<option value="21">谷口研</option>
-	</select>
+<script type="text/javascript" src="js/register_student.js"></script>
 
-      <select name="hope2">
-	<option value="---">第二希望</option>
-	<option value="1">田川研</option>
-	<option value="2">山本研</option>
-	<option value="3">井口研</option>
-	<option value="4">大星研</option>
-	<option value="5">笹野研</option>
-	<option value="6">佐野研</option>
-	<option value="7">樋口研</option>
-	<option value="8">高田研</option>
-	<option value="9">森山研</option>
-	<option value="10">阿部研</option>
-	<option value="11">加藤研</option>
-	<option value="12">溝渕研</option>
-	<option value="13">半田研</option>
-	<option value="14">守屋研</option>
-	<option value="15">石水研</option>
-	<option value="16">波部研</option>
-	<option value="17">角田研</option>
-	<option value="18">多田研</option>
-	<option value="19">広永研</option>
-	<option value="20">濱砂研</option>
-	<option value="21">谷口研</option>
-	</select>
-      <select name="hope3">
-	<option value="---">第三希望</option>
-	<option value="1">田川研</option>
-	<option value="2">山本研</option>
-	<option value="3">井口研</option>
-	<option value="4">大星研</option>
-	<option value="5">笹野研</option>
-	<option value="6">佐野研</option>
-	<option value="7">樋口研</option>
-	<option value="8">高田研</option>
-	<option value="9">森山研</option>
-	<option value="10">阿部研</option>
-	<option value="11">加藤研</option>
-	<option value="12">溝渕研</option>
-	<option value="13">半田研</option>
-	<option value="14">守屋研</option>
-	<option value="15">石水研</option>
-	<option value="16">波部研</option>
-	<option value="17">角田研</option>
-	<option value="18">多田研</option>
-	<option value="19">広永研</option>
-	<option value="20">濱砂研</option>
-	<option value="21">谷口研</option>
-	</select>
-</p>
-</div>
+<center>
+<h1>ラボナビ　プロフィール登録画面</h1>
+必要情報を入力して下さい。<br><br><br><br>
+</center>
 
-<button type="submit">登録</button>
-</div>
+<div class="container">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8">
+			 <form id="register" method="post" action="RegisterAddtionalInfoServlet">
+				 <table class="table table-striped table-bordered">
+					<tr>
+
+						<th>第一希望</th>
+						<th><div class="form-group" id="hope1"></div></th>
+					</tr>
+
+					<tr>
+						<th>第二希望</th>
+						<th><div class="form-group" id="hope2"></div></th>
+					</tr>
+
+					<tr>
+						<th>第三希望</th>
+						<th><div class="form-group" id="hope3"></div></th>
+					</tr>
+				</table>
+				</div>
+			</div>
+		</div>
+		<center>
+			<button id="register">登録完了</button>
+		</center>
+	</form>
+
 
 <div class="col-md-6 col-md-offset-5" id="CopyRight">
 	&copy; 2014 B14 Group. All Rights Reserved.

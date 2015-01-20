@@ -84,7 +84,6 @@ public class User{
 			statement.executeUpdate("insert into user(name,email,password,isTeacher)"
 					+	"values('"+name+"','"+email+"','"+password+"',"+temp+");");
 
-			System.out.println(name+":"+email+":"+password);
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			return false;

@@ -70,4 +70,14 @@
 	<servlet-name>ConfirmLoginServlet</servlet-name>
 	<url-pattern>ConfirmLoginServlet</url-pattern>
 </servlet-mapping>
+
+<servlet>
+	<servlet-name>SubmitLabReviewServlet</servlet-name>
+		<servlet-class>SubmitLabReviewServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>SubmitLabReviewServlet</servlet-name>
+	<url-pattern>SubmitLabReviewServlet</url-pattern>
+</servlet-mapping>
+
 </web-app>

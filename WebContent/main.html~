@@ -1,9 +1,3 @@
-<<<<<<< HEAD:WebContent/main.html~
-=======
-<%@ page language="java"
-contentType="text/html; charset=utf-8" %>
-<% if(request.getSession().getAttribute("userId") != null){ %>
->>>>>>> FETCH_HEAD:WebContent/main.jsp
 <!DOCTYPE html>
 <html lang="jp">
   <head>
